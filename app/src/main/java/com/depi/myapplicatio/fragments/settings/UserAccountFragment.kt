@@ -82,22 +82,20 @@ class UserAccountFragment : Fragment() {
 
 
 
-// updateInfo
-
 
         lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.updateInfo.collect{
                     when (it) {
                         is Resource.Loading -> {
-//                            binding.buttonSave.startAnimation()
+                            binding.buttonSave.startAnimation()
                         }
                         is Resource.Success -> {
-//                            binding.buttonSave.revertAnimation()
+                            binding.buttonSave.revertAnimation()
                             findNavController().navigateUp()
                         }
                         is Resource.Error -> {
-//                            binding.buttonSave.revertAnimation()
+                            binding.buttonSave.revertAnimation()
                             Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
                         }
                         else -> Unit

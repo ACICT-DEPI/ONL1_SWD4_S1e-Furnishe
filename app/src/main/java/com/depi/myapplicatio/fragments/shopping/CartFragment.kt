@@ -1,5 +1,6 @@
 package com.depi.myapplicatio.fragments.shopping
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,6 +21,7 @@ import com.depi.myapplicatio.databinding.FragmentCartBinding
 import com.depi.myapplicatio.firebase.FirebaseCommon
 import com.depi.myapplicatio.util.Resource
 import com.depi.myapplicatio.util.VerticalItemDecoration
+import com.depi.myapplicatio.util.showDialogue
 import com.depi.myapplicatio.viewmodel.CartViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -30,14 +32,36 @@ class CartFragment : Fragment() {
     private val binding get() = _binding!!
     private val cartAdapter by lazy { CartProductAdapter() }
     private val viewModel by activityViewModels<CartViewModel>()
+
+    private var totalPrice = 0f
+
+    @SuppressLint("SetTextI18n")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentCartBinding.inflate(inflater, container, false)
+        lifecycleScope.launch {
+            viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModel.productsPrice.collectLatest { _price ->
+                    _price?.let {
+                        totalPrice = it
+                        binding.tvTotalPrice.text = "$ $_price"
+                    }
+
+                }
+            }
+        }
         return _binding?.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (_binding == null)
@@ -57,22 +81,37 @@ class CartFragment : Fragment() {
             viewModel.changeQuantity(it, FirebaseCommon.QuantityChanging.DECREASE)
         }
 
+
+        binding.btnCheckout.setOnClickListener {
+            val action = CartFragmentDirections.actionCartFragmentToBillingFragment2(
+                totalPrice,
+                cartAdapter.differ.currentList.toTypedArray(),
+                false
+            )
+            findNavController().navigate(action)
+        }
+
+
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.deleteDialog.collectLatest {
-                    val alertDialog = AlertDialog.Builder(requireContext()).apply {
-                        setTitle("Delete item from cart")
-                        setMessage("Do you want to delete this item from your cart?")
-                        setNegativeButton("cancel") { dialog, _ ->
+                    showDialogue(context = requireContext(),
+                        title = "Delete item from cart",
+                        message = "Do you want to delete this item from your cart?",
+                        alertIcon = R.drawable.ic_info,
+                        negativeButtonText = "Cancel",
+                        positiveButtonText = "Delete",
+                        isCancelable = true,
+                        onNegativeAction = { dialog ->
+                            // Handle negative action (optional)
                             dialog.dismiss()
-                        }
-                        setPositiveButton("Delete") { dialog, _ ->
+                        },
+                        onPositiveAction = { dialog ->
+                            // TODO: Delete Product
                             viewModel.deleteCartProduct(it)
                             dialog.dismiss()
-                        }
-                    }
-                    alertDialog.create()
-                    alertDialog.show()
+
+                        })
                 }
             }
         }

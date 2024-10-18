@@ -41,7 +41,7 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentMainCategoryBinding.inflate(inflater)
         return binding.root
@@ -73,46 +73,46 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
         lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.bestProducts.collect{
-                when (it) {
-                    is Resource.Loading<*> -> {
-                        showLoading()
+                    when (it) {
+                        is Resource.Loading<*> -> {
+                            showLoading()
+                        }
+                        is Resource.Success<*> -> {
+                            specialProductsAdapter.differ.submitList(it.data)
+                            hideLoading()
+                        }
+                        is Resource.Error<*> -> {
+                            hideLoading()
+                            Log.e(TAG, it.message.toString())
+                            Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+                        }
+                        else -> Unit
                     }
-                    is Resource.Success<*> -> {
-                        specialProductsAdapter.differ.submitList(it.data)
-                        hideLoading()
-                    }
-                    is Resource.Error<*> -> {
-                        hideLoading()
-                        Log.e(TAG, it.message.toString())
-                        Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
-                    }
-                    else -> Unit
                 }
             }
         }
-    }
 
         lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.bestProducts.collect{
-                when (it) {
-                    is Resource.Loading<*> -> {
-                        showLoading()
+                    when (it) {
+                        is Resource.Loading<*> -> {
+                            showLoading()
+                        }
+                        is Resource.Success<*> -> {
+                            bestDealsAdapter.differ.submitList(it.data)
+                            hideLoading()
+                        }
+                        is Resource.Error<*> -> {
+                            hideLoading()
+                            Log.e(TAG, it.message.toString())
+                            Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+                        }
+                        else -> Unit
                     }
-                    is Resource.Success<*> -> {
-                        bestDealsAdapter.differ.submitList(it.data)
-                        hideLoading()
-                    }
-                    is Resource.Error<*> -> {
-                        hideLoading()
-                        Log.e(TAG, it.message.toString())
-                        Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
-                    }
-                    else -> Unit
                 }
             }
         }
-    }
 
 
 
@@ -148,46 +148,46 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
         })
     }
 
-             private fun setupBestProducts() {
-                bestProductsAdapter = BestProductsAdapter()
-                binding.rvBestProducts.apply {
-                    layoutManager =
-                        GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
-                    adapter = bestProductsAdapter
-                }
-            }
-
-             private fun setupBestDealsRv() {
-                bestDealsAdapter = BestDealsAdapter()
-                binding.rvBestDealsProducts.apply {
-                    layoutManager =
-                        LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-                    adapter = bestDealsAdapter
-                }
-            }
-
-             private fun hideLoading() {
-                binding.mainCategoryProgressbar.visibility = View.GONE
-            }
-
-             private fun showLoading() {
-                binding.mainCategoryProgressbar.visibility = View.VISIBLE
-
-            }
-
-             private fun setupSpecialProductsRv() {
-                specialProductsAdapter = SpecialProductsAdapter()
-                binding.rvSpecialProducts.apply {
-                    layoutManager =
-                        LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-                    adapter = specialProductsAdapter
-                }
-            }
-
-            override fun onResume() {
-                super.onResume()
-
-                showBottomNavigationView()
-            }
+    private fun setupBestProducts() {
+        bestProductsAdapter = BestProductsAdapter()
+        binding.rvBestProducts.apply {
+            layoutManager =
+                GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
+            adapter = bestProductsAdapter
+        }
     }
+
+    private fun setupBestDealsRv() {
+        bestDealsAdapter = BestDealsAdapter()
+        binding.rvBestDealsProducts.apply {
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            adapter = bestDealsAdapter
+        }
+    }
+
+    private fun hideLoading() {
+        binding.mainCategoryProgressbar.visibility = View.GONE
+    }
+
+    private fun showLoading() {
+        binding.mainCategoryProgressbar.visibility = View.VISIBLE
+
+    }
+
+    private fun setupSpecialProductsRv() {
+        specialProductsAdapter = SpecialProductsAdapter()
+        binding.rvSpecialProducts.apply {
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            adapter = specialProductsAdapter
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        showBottomNavigationView()
+    }
+}
 

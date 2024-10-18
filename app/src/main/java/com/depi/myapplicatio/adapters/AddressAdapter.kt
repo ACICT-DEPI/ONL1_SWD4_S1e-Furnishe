@@ -50,7 +50,7 @@ class AddressAdapter : Adapter<AddressAdapter.AddressViewHolder>() {
         )
     }
 
-    var selectedAddress = -1
+    private var selectedAddress = -1
     override fun onBindViewHolder(holder: AddressViewHolder, position: Int) {
         val address = differ.currentList[position]
         holder.bind(address, selectedAddress == position)

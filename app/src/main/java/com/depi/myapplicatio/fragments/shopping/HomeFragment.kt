@@ -22,7 +22,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(inflater)
         return binding.root
     }
@@ -38,10 +38,11 @@ class HomeFragment : Fragment() {
             FurnitureFragment(),
         )
 
-        val viewPager2Adapter = HomeViewpagerAdapter(categoriesFragments, childFragmentManager, lifecycle)
+        val viewPager2Adapter =
+            HomeViewpagerAdapter(categoriesFragments, childFragmentManager, lifecycle)
         binding.viewpagerHome.adapter = viewPager2Adapter
-        TabLayoutMediator(binding.tabLayout, binding.viewpagerHome){tab, position ->
-            when(position){
+        TabLayoutMediator(binding.tabLayout, binding.viewpagerHome) { tab, position ->
+            when (position) {
                 0 -> tab.text = "Main"
                 1 -> tab.text = "Chair"
                 2 -> tab.text = "Cupboard"

@@ -1,5 +1,6 @@
 package com.depi.myapplicatio.adapters
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import com.depi.myapplicatio.R
 import com.depi.myapplicatio.data.Address
 import com.depi.myapplicatio.data.CartProduct
 import com.depi.myapplicatio.databinding.BillingProductsRvItemBinding
+import com.depi.myapplicatio.helper.getProductPrice
 
 class BillingProductsAdapter : RecyclerView.Adapter<BillingProductsViewHolder>() {
 
@@ -50,15 +52,25 @@ class BillingProductsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVi
 
     val binding = BillingProductsRvItemBinding.bind(itemView)
 
+    @SuppressLint("SetTextI18n")
     fun bind(cartProduct: CartProduct) {
         binding.apply {
             Glide.with(itemView).load(cartProduct.product.images?.get(0))
                 .into(binding.imageCartProduct)
+
             tvProductCartName.text = cartProduct.product.name
+
             tvBillingProductQuantity.text = cartProduct.quantity.toString()
+
             tvCartProductSize.text = cartProduct.selectedSize ?: "".also {
-                imageCartProductColor.setImageDrawable(ColorDrawable(Color.TRANSPARENT))
+                imageCartProductSize.setImageDrawable(ColorDrawable(Color.TRANSPARENT))
             }
+
+            val priceAfterPercentage =
+                cartProduct.product.offerPercentage.getProductPrice(cartProduct.product.price)
+
+            tvProductCartPrice.text = "$ ${String.format("%.2f", priceAfterPercentage)}"
+
             imageCartProductColor.setImageDrawable(
                 ColorDrawable(
                     cartProduct.selectedColor ?: Color.TRANSPARENT

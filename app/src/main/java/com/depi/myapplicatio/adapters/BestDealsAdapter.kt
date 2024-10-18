@@ -79,3 +79,8 @@ class BestDealsAdapter : RecyclerView.Adapter<BestDealsAdapter.BestDealsViewHold
 
 
 
+
+
+
+
+

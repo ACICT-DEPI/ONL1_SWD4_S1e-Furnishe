@@ -15,13 +15,13 @@ import javax.inject.Inject
 @HiltViewModel
 class MainCategoryViewModel @Inject constructor(
 
-    private val firestore:FirebaseFirestore
+    val firestore: FirebaseFirestore
 
-) : ViewModel(){   // when we need to add dependcy we use @injec constractor then pass to this constaractor somethings
+) : ViewModel() {
 
 
     private val _specialProducts = MutableStateFlow<Resource<List<Product>>>(Resource.Unspecified())
-    val specialProducts : StateFlow<Resource<List<Product>>> = _specialProducts
+    val specialProducts: StateFlow<Resource<List<Product>>> = _specialProducts
 
     private val _bestDealsProducts =
         MutableStateFlow<Resource<List<Product>>>(Resource.Unspecified())
@@ -38,26 +38,25 @@ class MainCategoryViewModel @Inject constructor(
         fetchBestProducts()
     }
 
-    fun fetchSpecialProducts()
-    {
+    private fun fetchSpecialProducts() {
         viewModelScope.launch {
             _specialProducts.emit(Resource.Loading())
         }
         firestore.collection("Products")
-            .whereEqualTo("category" , "Special Products").get().addOnSuccessListener{result ->
+            .whereEqualTo("category", "Special Products").get().addOnSuccessListener { result ->
                 val specialProductsList = result.toObjects(Product::class.java)
                 viewModelScope.launch {
                     _specialProducts.emit(Resource.Success(specialProductsList))
                 }
 
-            }.addOnFailureListener{
+            }.addOnFailureListener {
                 viewModelScope.launch {
                     _specialProducts.emit(Resource.Error(it.message.toString()))
                 }
             }
     }
 
-    fun fetchBestDeals() {
+    private fun fetchBestDeals() {
         viewModelScope.launch {
             _bestDealsProducts.emit(Resource.Loading())
         }
@@ -78,7 +77,7 @@ class MainCategoryViewModel @Inject constructor(
         if (!pagingInfo.isPagingEnd) {
             viewModelScope.launch {
                 _bestProducts.emit(Resource.Loading())
-                firestore.collection("Products").whereEqualTo("category" , "Chair").orderBy(
+                firestore.collection("Products").orderBy(
                     "id",
                     Query.Direction.ASCENDING
                 )
@@ -99,8 +98,6 @@ class MainCategoryViewModel @Inject constructor(
             }
         }
     }
-
-
 
 
 }

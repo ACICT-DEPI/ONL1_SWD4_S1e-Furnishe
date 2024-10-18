@@ -7,28 +7,33 @@ import com.depi.myapplicatio.data.order.Order
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class OrderViewModel @Inject constructor(
-    private val firestore: FirebaseFirestore,
-    private val auth: FirebaseAuth
+    val firestore: FirebaseFirestore,
+    val auth: FirebaseAuth
 ) : ViewModel() {
 
     private val _order = MutableStateFlow<Resource<Order>>(Resource.Unspecified())
     val order = _order.asStateFlow()
+
+    private val _errorState = MutableSharedFlow<String>()
+    val errorState = _errorState.asSharedFlow()
 
     fun placeOrder(order: Order) {
         viewModelScope.launch {
             _order.emit(Resource.Loading())
         }
         firestore.runBatch { batch ->
-            //TODO: Add the order into user-orders collection
-            //TODO: Add the order into orders collection
-            //TODO: Delete the products from user-cart collection
+            // TODO: Add the order into user-orders collection
+            // TODO: Add the order into orders collection
+            // TODO: Delete the products from user-cart collection
 
             firestore.collection("user")
                 .document(auth.uid!!)
@@ -51,17 +56,13 @@ class OrderViewModel @Inject constructor(
             }
         }.addOnFailureListener {
             viewModelScope.launch {
-                _order.emit(Resource.Error(it.message.toString()))
+                _errorState.emit(it.message.toString())
+                _order.emit(Resource.Error(_errorState.toString()))
             }
         }
     }
 
 }
-
-
-
-
-
 
 
 

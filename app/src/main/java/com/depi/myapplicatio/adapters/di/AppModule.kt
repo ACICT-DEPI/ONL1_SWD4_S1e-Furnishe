@@ -1,4 +1,4 @@
-package com.depi.myapplicatio.di
+package com.depi.myapplicatio.adapters.di
 
 
 import android.app.Application

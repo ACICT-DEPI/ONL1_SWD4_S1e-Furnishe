@@ -17,20 +17,16 @@ class AccountOptionsFragment : Fragment(R.layout.fragment_account_options) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // تأكد من تضمين container
+
         binding = FragmentAccountOptionsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
         binding.buttonRegisterAccountOptions.setOnClickListener {
             findNavController().navigate(R.id.action_accountOptionsFragment_to_registerFragment)
         }
-
-
         binding.buttonLoginAccountOptions.setOnClickListener {
             findNavController().navigate(R.id.action_accountOptionsFragment_to_login)
         }

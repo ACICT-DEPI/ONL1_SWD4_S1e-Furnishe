@@ -15,12 +15,12 @@ import javax.inject.Inject
 
 @HiltViewModel
 class IntroductionViewModel @Inject constructor(
-    private val sharedPreferences: SharedPreferences,
-    private val firebaseAuth: FirebaseAuth
+    val sharedPreferences: SharedPreferences,
+    val firebaseAuth: FirebaseAuth
 ) : ViewModel() {
 
     private val _navigate = MutableStateFlow(0)
-     val navigate: StateFlow<Int> = _navigate
+    val navigate: StateFlow<Int> = _navigate
 
     companion object{
         const val SHOPPING_ACTIVITY = 23
@@ -40,7 +40,6 @@ class IntroductionViewModel @Inject constructor(
                 _navigate.emit(ACCOUNT_OPTIONS_FRAGMENT)
             }
         }else{
-            Unit
         }
     }
 

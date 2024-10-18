@@ -1,5 +1,6 @@
 package com.depi.myapplicatio.fragments.settings
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +11,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.depi.myapplicatio.adapters.BillingProductsAdapter
 
-import com.depi.myapplicatio.databinding.FragmentOrderDetailBinding
+
 import com.depi.myapplicatio.util.VerticalItemDecoration
 import com.depi.myapplicatio.util.hideBottomNavigationView
 import com.depi.myapplicatio.data.order.OrderStatus
 import com.depi.myapplicatio.data.order.getOrderStatus
+import com.depi.myapplicatio.databinding.FragmentOrderDetailBinding
+import com.shuhart.stepview.StepView
 
 class OrderDetailFragment : Fragment() {
     private lateinit var binding: FragmentOrderDetailBinding
@@ -30,6 +33,7 @@ class OrderDetailFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -42,14 +46,14 @@ class OrderDetailFragment : Fragment() {
 
             tvOrderId.text = "Order #${order.orderId}"
 
-//            stepView.setSteps(
-//                mutableListOf(
-//                    OrderStatus.Ordered.status,
-//                    OrderStatus.Confirmed.status,
-//                    OrderStatus.Shipped.status,
-//                    OrderStatus.Delivered.status,
-//                )
-//            )
+            stepView.setSteps(
+                mutableListOf(
+                    OrderStatus.Ordered.status,
+                    OrderStatus.Confirmed.status,
+                    OrderStatus.Shipped.status,
+                    OrderStatus.Delivered.status,
+                )
+            )
 
             val currentOrderState = when (getOrderStatus(order.orderStatus)) {
                 is OrderStatus.Ordered -> 0
@@ -59,10 +63,10 @@ class OrderDetailFragment : Fragment() {
                 else -> 0
             }
 
-//            stepView.go(currentOrderState, false)
-//            if (currentOrderState == 3) {
-//                stepView.done(true)
-//            }
+            stepView.go(currentOrderState, false)
+            if (currentOrderState == 3) {
+                stepView.done(true)
+            }
 
             tvFullName.text = order.address.fullName
             tvAddress.text = "${order.address.street} ${order.address.city}"

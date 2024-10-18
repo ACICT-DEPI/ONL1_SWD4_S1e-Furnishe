@@ -13,9 +13,9 @@ import com.depi.myapplicatio.data.CartProduct
 import com.depi.myapplicatio.databinding.CartProductItemBinding
 import com.depi.myapplicatio.helper.getProductPrice
 
-class CartProductAdapter: RecyclerView.Adapter<CartProductAdapter.CartProductsViewHolder>() {
+class CartProductAdapter : RecyclerView.Adapter<CartProductAdapter.CartProductsViewHolder>() {
 
-    inner class CartProductsViewHolder( val binding: CartProductItemBinding) :
+    inner class CartProductsViewHolder(val binding: CartProductItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
@@ -25,11 +25,18 @@ class CartProductAdapter: RecyclerView.Adapter<CartProductAdapter.CartProductsVi
                 tvProductCartName.text = cartProduct.product.name
                 tvCartProductQuantity.text = cartProduct.quantity.toString()
 
-                val priceAfterPercentage = cartProduct.product.offerPercentage.getProductPrice(cartProduct.product.price)
+                val priceAfterPercentage =
+                    cartProduct.product.offerPercentage.getProductPrice(cartProduct.product.price)
                 tvProductCartPrice.text = "$ ${String.format("%.2f", priceAfterPercentage)}"
 
-                imageCartProductColor.setImageDrawable(ColorDrawable(cartProduct.selectedColor?: Color.TRANSPARENT))
-                tvCartProductSize.text = cartProduct.selectedSize?:"".also { imageCartProductSize.setImageDrawable(ColorDrawable(Color.TRANSPARENT)) }
+                imageCartProductColor.setImageDrawable(
+                    ColorDrawable(
+                        cartProduct.selectedColor ?: Color.TRANSPARENT
+                    )
+                )
+                tvCartProductSize.text = cartProduct.selectedSize ?: "".also {
+                    imageCartProductSize.setImageDrawable(ColorDrawable(Color.TRANSPARENT))
+                }
             }
         }
     }
@@ -78,7 +85,6 @@ class CartProductAdapter: RecyclerView.Adapter<CartProductAdapter.CartProductsVi
     var onProductClick: ((CartProduct) -> Unit)? = null
     var onPlusClick: ((CartProduct) -> Unit)? = null
     var onMinusClick: ((CartProduct) -> Unit)? = null
-
 
 
 }

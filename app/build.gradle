@@ -79,8 +79,9 @@ dependencies {
 // Loading button
     implementation "com.github.leandroborgesferreira:loading-button-android:2.3.0"
 
-//    shuhart.stepview.StepView
-//    implementation 'com.tbuonomo:dotsindicator:5.0'
+
+    // Step View
+    implementation 'com.github.shuhart:stepview:1.5.1'
 
     //Glide
 
