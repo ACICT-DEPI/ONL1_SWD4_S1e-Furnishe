@@ -20,6 +20,7 @@ import com.depi.myapplicatio.adapters.BestProductsAdapter
 import com.depi.myapplicatio.R
 import com.depi.myapplicatio.adapters.SpecialProductsAdapter
 import com.depi.myapplicatio.databinding.FragmentMainCategoryBinding
+import com.depi.myapplicatio.util.HorizontalDecoration
 import com.depi.myapplicatio.util.Resource
 import com.depi.myapplicatio.util.showBottomNavigationView
 import com.depi.myapplicatio.viewmodel.MainCategoryViewModel
@@ -163,6 +164,7 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             adapter = bestDealsAdapter
+            addItemDecoration(HorizontalDecoration(25))
         }
     }
 

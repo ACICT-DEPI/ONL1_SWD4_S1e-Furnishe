@@ -122,7 +122,10 @@
     <string name="g_order_details">Order Details</string>
     <string name="product_added">Product added to your cart</string>
     <string name="switch_account">Switch Account</string>
-<!--    <string name="open_menu">Open Menu</string>-->
+    <string name="scotch_premium">Scotch Premium</string>
+    <string name="_2000">$2000</string>
+    <string name="_1600">$1600</string>
+    <!--    <string name="open_menu">Open Menu</string>-->
 <!--    <string name="close_menu">Close Menu</string>-->
 <!--    <string name="my_store">My Store</string>-->
 <!--    <string name="g_total_sales">Total Sales</string>-->

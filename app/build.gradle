@@ -94,16 +94,11 @@ dependencies {
     //viewpager2 indicator
     implementation 'com.github.zhpanvip:viewpagerindicator:1.2.3'
 
-    //stepView
-
-    // ViewPager2 indicator
-    implementation 'com.github.zhpanvip:viewpagerindicator:1.2.3'
 
 
-
-    // StepView
-
-    implementation 'com.github.vinaygopinath:StepView:2.0.1'
+    //intuit
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
 
     // Android Ktx
     implementation 'androidx.navigation:navigation-fragment-ktx:2.8.2'
