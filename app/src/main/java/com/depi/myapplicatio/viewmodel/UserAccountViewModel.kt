@@ -1,8 +1,6 @@
 package com.depi.myapplicatio.viewmodel
 
 import android.app.Application
-import android.content.Context
-import android.content.ContextWrapper
 import android.graphics.Bitmap
 import android.net.Uri
 import android.provider.MediaStore

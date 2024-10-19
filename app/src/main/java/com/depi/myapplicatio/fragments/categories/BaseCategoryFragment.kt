@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.depi.myapplicatio.adapters.BestProductsAdapter
 import com.depi.myapplicatio.R
 import com.depi.myapplicatio.databinding.FragmentBaseCategoryBinding
+import com.depi.myapplicatio.util.HorizontalDecoration
 import com.depi.myapplicatio.util.showBottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -53,7 +54,6 @@ open class BaseCategoryFragment: Fragment(R.layout.fragment_base_category) {
         binding.rvOfferProducts.addOnScrollListener(object : RecyclerView.OnScrollListener(){
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-
                 if (!recyclerView.canScrollVertically(1) && dx != 0){
                     onOfferPagingRequest()
                 }
@@ -96,6 +96,7 @@ open class BaseCategoryFragment: Fragment(R.layout.fragment_base_category) {
             layoutManager =
                 GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
             adapter = bestProductsAdapter
+            addItemDecoration(HorizontalDecoration())
         }
     }
 
@@ -104,6 +105,7 @@ open class BaseCategoryFragment: Fragment(R.layout.fragment_base_category) {
             layoutManager =
                 LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
             adapter = offerAdapter
+            addItemDecoration(HorizontalDecoration())
         }
     }
 

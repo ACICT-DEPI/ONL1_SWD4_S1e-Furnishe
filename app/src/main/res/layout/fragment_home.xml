@@ -58,6 +58,7 @@
             android:layout_height="match_parent"/>
 
         <ImageView
+            android:id="@+id/frame_scan"
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:src="@drawable/ic_scan"
@@ -72,6 +73,7 @@
             android:layout_height="match_parent"/>
 
         <ImageView
+            android:id="@+id/mic_scan"
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:src="@drawable/ic_microphone"

@@ -13,7 +13,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.depi.myapplicatio.R
 import com.depi.myapplicatio.activities.ShoppingActivity
-import com.depi.myapplicatio.databinding.FragmentIntroductionBinding
+import com.depi.myapplicatio.databinding.FragmentIntrodcutionBinding
 import com.depi.myapplicatio.viewmodel.IntroductionViewModel
 import com.depi.myapplicatio.viewmodel.IntroductionViewModel.Companion.ACCOUNT_OPTIONS_FRAGMENT
 import com.depi.myapplicatio.viewmodel.IntroductionViewModel.Companion.SHOPPING_ACTIVITY
@@ -21,8 +21,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class IntroductionFragment : Fragment(R.layout.fragment_introduction) {
-    private var _binding: FragmentIntroductionBinding? = null
+class IntroductionFragment : Fragment(R.layout.fragment_introdcution) {
+    private var _binding: FragmentIntrodcutionBinding? = null
     private val binding get() = _binding!!
     private val viewModel by viewModels<IntroductionViewModel>()
 
@@ -31,7 +31,7 @@ class IntroductionFragment : Fragment(R.layout.fragment_introduction) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentIntroductionBinding.inflate(inflater, container, false)
+        _binding = FragmentIntrodcutionBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -45,7 +45,8 @@ class IntroductionFragment : Fragment(R.layout.fragment_introduction) {
                     when (it) {
                         SHOPPING_ACTIVITY -> {
                             Intent(requireActivity(), ShoppingActivity::class.java).also { intent ->
-                                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                                intent.flags =
+                                    Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                                 startActivity(intent)
                             }
                         }
@@ -60,7 +61,7 @@ class IntroductionFragment : Fragment(R.layout.fragment_introduction) {
             }
         }
 
-        binding.FirstClicker.setOnClickListener {
+        binding.buttonStart.setOnClickListener {
             viewModel.startButtonClick()
             findNavController().navigate(R.id.action_introductionFragment_to_accountOptionsFragment)
         }

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +17,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.depi.myapplicatio.BuildConfig
 import com.depi.myapplicatio.R
 import com.depi.myapplicatio.activities.LoginRegisterActivity
 import com.depi.myapplicatio.databinding.FragmentProfileBinding
@@ -69,27 +69,33 @@ class ProfileFragment : Fragment() {
             requireActivity().finish()
         }
 
-        binding.tvVersion.text = "Version ${BuildConfig.VERSION_CODE}"
+        binding.tvVersion.text = "Version ${Build.VERSION.CODENAME}"
 
 
         lifecycleScope.launch {
-            viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED){
+            viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
 
                 viewModel.user.collectLatest {
                     when (it) {
                         is Resource.Loading -> {
                             binding.progressbarSettings.visibility = View.VISIBLE
                         }
+
                         is Resource.Success -> {
                             binding.progressbarSettings.visibility = View.GONE
-                            Glide.with(requireView()).load(it.data!!.imagePath).error(ColorDrawable(
-                                Color.BLACK)).into(binding.imageUser)
+                            Glide.with(requireView()).load(it.data!!.imagePath).error(
+                                ColorDrawable(
+                                    Color.BLACK
+                                )
+                            ).into(binding.imageUser)
                             binding.tvUserName.text = "${it.data.firstName} ${it.data.lastName}"
                         }
+
                         is Resource.Error -> {
                             Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
                             binding.progressbarSettings.visibility = View.GONE
                         }
+
                         else -> Unit
                     }
                 }

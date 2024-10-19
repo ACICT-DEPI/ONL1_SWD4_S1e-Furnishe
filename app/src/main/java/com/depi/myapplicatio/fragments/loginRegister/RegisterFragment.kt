@@ -1,6 +1,5 @@
 package com.depi.myapplicatio.fragments.loginRegister
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,7 +12,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.depi.myapplicatio.R
-import com.depi.myapplicatio.activities.ShoppingActivity
 import com.depi.myapplicatio.data.User
 import com.depi.myapplicatio.databinding.FragmentRegisterBinding
 import com.depi.myapplicatio.util.RegisterValidation

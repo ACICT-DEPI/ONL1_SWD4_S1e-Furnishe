@@ -25,7 +25,6 @@ import com.depi.myapplicatio.util.Resource
 import com.depi.myapplicatio.viewmodel.UserAccountViewModel
 
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
