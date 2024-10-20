@@ -48,6 +48,9 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideFireBaseUtility() = FirebaseUtility()
+    fun provideFireBaseUtility() = FirebaseUtility(
+        provideFirebaseAuth(),
+        provideFirebaseFirestoreDatabse()
+    )
 
 }

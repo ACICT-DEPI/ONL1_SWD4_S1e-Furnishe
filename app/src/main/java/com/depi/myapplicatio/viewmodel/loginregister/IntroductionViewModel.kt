@@ -4,8 +4,8 @@ import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.depi.myapplicatio.R
+import com.depi.myapplicatio.data.remote.FirebaseUtility
 import com.depi.myapplicatio.util.constants.Constants.SharedPreferencesConstants.INTRODUCTION_KEY
-import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,8 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class IntroductionViewModel @Inject constructor(
-    val sharedPreferences: SharedPreferences,
-    val firebaseAuth: FirebaseAuth
+    private val sharedPreferences: SharedPreferences,
+    private val firebaseUtility: FirebaseUtility
 ) : ViewModel() {
 
     private val _navigate = MutableStateFlow(0)
@@ -29,7 +29,7 @@ class IntroductionViewModel @Inject constructor(
 
     init {
         val isButtonClicked = sharedPreferences.getBoolean(INTRODUCTION_KEY, false)
-        val user = firebaseAuth.currentUser
+        val user = firebaseUtility.currentUser()
 
         if (user != null) {
             viewModelScope.launch {
@@ -40,6 +40,7 @@ class IntroductionViewModel @Inject constructor(
                 _navigate.emit(ACCOUNT_OPTIONS_FRAGMENT)
             }
         } else {
+            Unit
         }
     }
 

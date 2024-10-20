@@ -73,7 +73,7 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
 
         lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                viewModel.bestProducts.collect{
+                viewModel.specialProducts.collect{
                     when (it) {
                         is Resource.Loading<*> -> {
                             showLoading()
@@ -95,7 +95,7 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
 
         lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                viewModel.bestProducts.collect{
+                viewModel.bestDealsProducts.collect{
                     when (it) {
                         is Resource.Loading<*> -> {
                             showLoading()

@@ -4,14 +4,12 @@ package com.depi.myapplicatio.viewmodel.loginregister
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.depi.myapplicatio.data.models.User
+import com.depi.myapplicatio.data.remote.FirebaseUtility
 import com.depi.myapplicatio.util.registerutility.RegisterFailedState
 import com.depi.myapplicatio.util.registerutility.RegisterValidation
-import com.depi.myapplicatio.util.state.Resource
 import com.depi.myapplicatio.util.registerutility.validateEmail
 import com.depi.myapplicatio.util.registerutility.validatePassword
-import com.depi.myapplicatio.util.constants.Constants.FireBaseConstants.USER_COLLECTION
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
+import com.depi.myapplicatio.util.state.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
@@ -23,8 +21,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
-    private val firebaseAuth: FirebaseAuth,
-    private val db: FirebaseFirestore
+    private val firebaseUtility: FirebaseUtility
 ) : ViewModel() {
 
     private val _register = MutableStateFlow<Resource<User>>(Resource.Unspecified())
@@ -34,7 +31,7 @@ class RegisterViewModel @Inject constructor(
     val validation = _validation.receiveAsFlow()
     fun createAccountWithEmailAndPassword(user: User, password: String) {
 
-        if (CheckValidation(user, password)) {
+        if (checkValidation(user, password)) {
             // أولاً، تحقق مما إذا كان البريد الإلكتروني موجودًا
             checkEmailExists(user.email) { emailExists ->
                 if (emailExists) {
@@ -52,10 +49,10 @@ class RegisterViewModel @Inject constructor(
                     runBlocking {
                         _register.emit(Resource.Loading())
                     }
-                    firebaseAuth.createUserWithEmailAndPassword(user.email, password)
+                    firebaseUtility.createNewUser(user.email, password)
                         .addOnSuccessListener {
                             it.user?.let {
-                                SaveUserInfo(it.uid, user)
+                                saveUserInfo(it.uid, user)
                                 Log.d("Firestore", "User data added successfully.")
                             }
                         }.addOnFailureListener {
@@ -76,9 +73,7 @@ class RegisterViewModel @Inject constructor(
     }
 
     private fun checkEmailExists(email: String, callback: (Boolean) -> Unit) {
-        db.collection(USER_COLLECTION)
-            .whereEqualTo("email", email) // استخدم الحقل المناسب من نموذج المستخدم
-            .get()
+        firebaseUtility.checkUserExistence(email)
             .addOnSuccessListener { documents ->
                 // إذا كانت هناك أي وثائق، فهذا يعني أن البريد الإلكتروني موجود
                 callback(!documents.isEmpty)
@@ -89,10 +84,8 @@ class RegisterViewModel @Inject constructor(
             }
     }
 
-    private fun SaveUserInfo(userUid: String, user: User) {
-        db.collection(USER_COLLECTION)
-            .document(userUid)
-            .set(user)
+    private fun saveUserInfo(userUid: String, user: User) {
+        firebaseUtility.saveUserData(userUid, user)
             .addOnSuccessListener {
                 _register.value = Resource.Success(user)
             }
@@ -101,12 +94,11 @@ class RegisterViewModel @Inject constructor(
             }
     }
 
-    private fun CheckValidation(user: User, password: String): Boolean {
+    private fun checkValidation(user: User, password: String): Boolean {
         val emailvalidation = validateEmail(user.email)
         val passwordvalidation = validatePassword(password)
-        val shouldRegister = emailvalidation is RegisterValidation.Success
-                && passwordvalidation is RegisterValidation.Success
-        return shouldRegister
+        return (emailvalidation is RegisterValidation.Success
+                && passwordvalidation is RegisterValidation.Success)
     }
 }
 

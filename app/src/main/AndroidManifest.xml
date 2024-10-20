@@ -22,6 +22,9 @@
             android:name=".activities.ShoppingActivity"
             android:exported="true"/>
 
+        <activity android:name=".activities.LoginRegisterActivity"
+            android:exported="true"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

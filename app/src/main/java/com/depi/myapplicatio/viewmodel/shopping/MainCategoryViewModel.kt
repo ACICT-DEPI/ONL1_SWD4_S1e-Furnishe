@@ -2,10 +2,9 @@ package com.depi.myapplicatio.viewmodel.shopping
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.depi.myapplicatio.util.state.Resource
 import com.depi.myapplicatio.data.models.Product
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
+import com.depi.myapplicatio.data.remote.FirebaseUtility
+import com.depi.myapplicatio.util.state.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -14,8 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainCategoryViewModel @Inject constructor(
-
-    val firestore: FirebaseFirestore
+    private val firebaseUtility: FirebaseUtility
 
 ) : ViewModel() {
 
@@ -42,25 +40,24 @@ class MainCategoryViewModel @Inject constructor(
         viewModelScope.launch {
             _specialProducts.emit(Resource.Loading())
         }
-        firestore.collection("Products")
-            .whereEqualTo("category", "Special Products").get().addOnSuccessListener { result ->
-                val specialProductsList = result.toObjects(Product::class.java)
-                viewModelScope.launch {
-                    _specialProducts.emit(Resource.Success(specialProductsList))
-                }
-
-            }.addOnFailureListener {
-                viewModelScope.launch {
-                    _specialProducts.emit(Resource.Error(it.message.toString()))
-                }
+        firebaseUtility.getSpecialProducts().addOnSuccessListener { result ->
+            val specialProductsList = result.toObjects(Product::class.java)
+            viewModelScope.launch {
+                _specialProducts.emit(Resource.Success(specialProductsList))
             }
+
+        }.addOnFailureListener {
+            viewModelScope.launch {
+                _specialProducts.emit(Resource.Error(it.message.toString()))
+            }
+        }
     }
 
     private fun fetchBestDeals() {
         viewModelScope.launch {
             _bestDealsProducts.emit(Resource.Loading())
         }
-        firestore.collection("Products").whereEqualTo("category", "Best Deals").get()
+        firebaseUtility.getBestDeals()
             .addOnSuccessListener { result ->
                 val bestDealsProducts = result.toObjects(Product::class.java)
                 viewModelScope.launch {
@@ -77,11 +74,7 @@ class MainCategoryViewModel @Inject constructor(
         if (!pagingInfo.isPagingEnd) {
             viewModelScope.launch {
                 _bestProducts.emit(Resource.Loading())
-                firestore.collection("Products").orderBy(
-                    "id",
-                    Query.Direction.ASCENDING
-                )
-                    .limit(pagingInfo.bestProductsPage * 10).get()
+                firebaseUtility.getBestProducts(pagingInfo.bestProductsPage * 10)
                     .addOnSuccessListener { result ->
                         val bestProducts = result.toObjects(Product::class.java)
                         pagingInfo.isPagingEnd = bestProducts == pagingInfo.oldBestProducts

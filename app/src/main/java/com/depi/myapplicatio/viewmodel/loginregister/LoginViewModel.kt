@@ -2,8 +2,8 @@ package com.depi.myapplicatio.viewmodel.loginregister
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.depi.myapplicatio.data.remote.FirebaseUtility
 import com.depi.myapplicatio.util.state.Resource
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,8 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-
-    private val firebaseAuth: FirebaseAuth,
+    private val firebaseUtility: FirebaseUtility,
 ) : ViewModel() {
     private val _login = MutableStateFlow<Resource<FirebaseUser>>(Resource.Unspecified())
     val login = _login.asSharedFlow()
@@ -27,7 +26,7 @@ class LoginViewModel @Inject constructor(
         viewModelScope.launch {
             _login.emit(Resource.Loading())
 
-            firebaseAuth.signInWithEmailAndPassword(email, password)
+            firebaseUtility.login(email, password)
                 .addOnSuccessListener { authResult ->
                     authResult.user?.let { user ->
                         viewModelScope.launch {
@@ -61,7 +60,7 @@ class LoginViewModel @Inject constructor(
             _resetPassword.emit(Resource.Loading())
 
             try {
-                firebaseAuth.sendPasswordResetEmail(email).await()
+                firebaseUtility.resetPassword(email).await()
                 _resetPassword.emit(Resource.Success(email))
             } catch (e: Exception) {
                 _resetPassword.emit(Resource.Error(e.message.toString()))
