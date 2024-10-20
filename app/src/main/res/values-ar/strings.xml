@@ -125,6 +125,16 @@
     <string name="_1600">$1600</string>
     <string name="powered_by_depi_group">تم بواسطة فريق من طلبة رواد مصر الرقمية</string>
     <string name="easy_e_commerce_experience">تجربة تسوق بسيطة وغير معقدة</string>
+    <string name="g_details">Details</string>
+    <string name="lofcoding">Lofcoding</string>
+    <string name="_6000">$6000</string>
+    <color name="brown">#704F38</color>
+    <color name="Dark_grayish_brown">#3E3B39</color>
+    <color name="dark_grayish_brown">#4E4745</color>
+    <string name="_50">50$</string>
+    <string name="_1">1</string>
+    <string name="l">L</string>
+    <string name="address_location_ex_home">Address location Ex: Home</string>
 
 
 </resources>

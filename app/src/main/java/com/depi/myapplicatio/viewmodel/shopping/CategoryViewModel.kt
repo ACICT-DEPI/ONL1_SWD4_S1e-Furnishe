@@ -2,17 +2,18 @@ package com.depi.myapplicatio.viewmodel.shopping
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.depi.myapplicatio.util.state.Resource
 import com.depi.myapplicatio.data.models.Category
 import com.depi.myapplicatio.data.models.Product
-import com.google.firebase.firestore.FirebaseFirestore
+import com.depi.myapplicatio.data.remote.FirebaseUtility
+import com.depi.myapplicatio.util.state.Resource
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CategoryViewModel constructor(
-    private val firestore: FirebaseFirestore,
-    private val category: Category
+class CategoryViewModel @Inject constructor(
+    private val category: Category,
+    private val firebaseUtility: FirebaseUtility
 ) : ViewModel() {
 
     private val _offerProducts = MutableStateFlow<Resource<List<Product>>>(Resource.Unspecified())
@@ -30,8 +31,7 @@ class CategoryViewModel constructor(
         viewModelScope.launch {
             _offerProducts.emit(Resource.Loading())
         }
-        firestore.collection("Products").whereEqualTo("category", category.category)
-            .whereNotEqualTo("offerPercentage", null).get()
+        firebaseUtility.getOfferProducts(category.category)
             .addOnSuccessListener {
                 val products = it.toObjects(Product::class.java)
                 viewModelScope.launch {
@@ -48,8 +48,7 @@ class CategoryViewModel constructor(
         viewModelScope.launch {
             _bestProducts.emit(Resource.Loading())
         }
-        firestore.collection("Products").whereEqualTo("category", category.category)
-            .whereEqualTo("offerPercentage", null).get()
+        firebaseUtility.getOfferProducts(category.category)
             .addOnSuccessListener {
                 val products = it.toObjects(Product::class.java)
                 viewModelScope.launch {

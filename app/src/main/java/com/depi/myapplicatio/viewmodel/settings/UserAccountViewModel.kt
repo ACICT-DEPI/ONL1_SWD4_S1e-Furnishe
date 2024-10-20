@@ -25,7 +25,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class UserAccountViewModel @Inject constructor(
-    private val firestore: FirebaseFirestore,
+    private val fireStore: FirebaseFirestore,
     private val auth: FirebaseAuth,
     private val storage: StorageReference,
     app: Application
@@ -46,7 +46,7 @@ class UserAccountViewModel @Inject constructor(
             _user.emit(Resource.Loading())
         }
 
-        firestore.collection("user").document(auth.uid!!).get()
+        fireStore.collection("user").document(auth.uid!!).get()
             .addOnSuccessListener {
                 val user = it.toObject(User::class.java)
                 user?.let {
@@ -109,8 +109,8 @@ class UserAccountViewModel @Inject constructor(
     }
 
     private fun saveUserInformation(user: User, shouldRetrievedOldImage: Boolean) {
-        firestore.runTransaction { transaction ->
-            val documentRef = firestore.collection("user").document(auth.uid!!)
+        fireStore.runTransaction { transaction ->
+            val documentRef = fireStore.collection("user").document(auth.uid!!)
             if (shouldRetrievedOldImage) {
                 val currentUser = transaction.get(documentRef).toObject(User::class.java)
                 val newUser = user.copy(imagePath = currentUser?.imagePath ?: "")

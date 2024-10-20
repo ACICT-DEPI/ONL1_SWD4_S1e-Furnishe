@@ -1,7 +1,9 @@
 package com.depi.myapplicatio.adapters
 
 import android.annotation.SuppressLint
+import android.graphics.Paint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -21,9 +23,10 @@ class BestDealsAdapter : RecyclerView.Adapter<BestDealsAdapter.BestDealsViewHold
                 product.offerPercentage?.let {
                     val remainingPricePercentage = 1f - it
                     val priceAfterOffer = remainingPricePercentage * product.price
+                    tvOldPrice.paintFlags = tvOldPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
                     tvNewPrice.text = "$ ${String.format("%.2f", priceAfterOffer)}"
                 }
-                tvOldPrice.text = "$ ${product.price}"
+                tvNewPrice.text = "$ ${product.price}"
                 tvDealProductName.text = product.name
             }
         }

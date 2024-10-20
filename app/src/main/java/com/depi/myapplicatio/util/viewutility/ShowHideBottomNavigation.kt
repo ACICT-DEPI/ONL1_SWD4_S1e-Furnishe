@@ -1,7 +1,7 @@
 package com.depi.myapplicatio.util.viewutility
 
 import androidx.fragment.app.Fragment
-import com.depi.myapplicatio.activities.ShoppingActivity
+import com.depi.myapplicatio.ui.activities.ShoppingActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 fun Fragment.hideBottomNavigationView(){

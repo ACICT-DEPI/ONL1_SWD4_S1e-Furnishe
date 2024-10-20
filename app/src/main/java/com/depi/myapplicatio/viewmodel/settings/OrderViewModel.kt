@@ -2,9 +2,9 @@ package com.depi.myapplicatio.viewmodel.settings
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.depi.myapplicatio.util.state.Resource
 import com.depi.myapplicatio.data.models.order.Order
-import com.google.firebase.auth.FirebaseAuth
+import com.depi.myapplicatio.data.remote.FirebaseUtility
+import com.depi.myapplicatio.util.state.Resource
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -17,7 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class OrderViewModel @Inject constructor(
     val firestore: FirebaseFirestore,
-    val auth: FirebaseAuth
+    private val firebaseUtility: FirebaseUtility
 ) : ViewModel() {
 
     private val _order = MutableStateFlow<Resource<Order>>(Resource.Unspecified())
@@ -35,18 +35,14 @@ class OrderViewModel @Inject constructor(
             // TODO: Add the order into orders collection
             // TODO: Delete the products from user-cart collection
 
-            firestore.collection("user")
-                .document(auth.uid!!)
-                .collection("orders")
-                .document()
-                .set(order)
+            firebaseUtility.addOrderIntoUserCollection(order)
 
-            firestore.collection("orders").document().set(order)
+            firebaseUtility.addOrderIntoOrderCollection(order)
 
 
-            firestore.collection("user").document(auth.uid!!).collection("cart").get()
-                .addOnSuccessListener {
-                    it.documents.forEach {
+            firebaseUtility.getCartProducts().get()
+                .addOnSuccessListener { cartProducts ->
+                    cartProducts.documents.forEach {
                         it.reference.delete()
                     }
                 }

@@ -1,4 +1,4 @@
-package com.depi.myapplicatio.activities
+package com.depi.myapplicatio.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

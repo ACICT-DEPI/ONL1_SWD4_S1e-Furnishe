@@ -1,14 +1,18 @@
 package com.depi.myapplicatio.data.remote
 
+import com.depi.myapplicatio.data.models.Address
+import com.depi.myapplicatio.data.models.CartProduct
 import com.depi.myapplicatio.data.models.User
+import com.depi.myapplicatio.data.models.order.Order
 import com.depi.myapplicatio.util.constants.Constants.FireBaseConstants.ADDRESS_COLLECTION
 import com.depi.myapplicatio.util.constants.Constants.FireBaseConstants.CART_COLLECTION
+import com.depi.myapplicatio.util.constants.Constants.FireBaseConstants.CATEGORIES_COLLECTION
+import com.depi.myapplicatio.util.constants.Constants.FireBaseConstants.ORDER_COLLECTION
 import com.depi.myapplicatio.util.constants.Constants.FireBaseConstants.PRODUCTS_COLLECTION
 import com.depi.myapplicatio.util.constants.Constants.FireBaseConstants.USER_COLLECTION
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
@@ -36,6 +40,7 @@ class FirebaseUtility @Inject constructor(
     }
 
     fun currentUser() = firebaseAuth.currentUser
+    fun getUser() = fireStore.collection(USER_COLLECTION).document(firebaseAuth.uid!!)
 
     fun searchProduct(query: String) =
         productsCollection
@@ -47,6 +52,8 @@ class FirebaseUtility @Inject constructor(
 
     fun login(email: String, password: String) =
         firebaseAuth.signInWithEmailAndPassword(email, password)
+
+    fun logout() = firebaseAuth.signOut()
 
     fun createNewUser(email: String, password: String) =
         firebaseAuth.createUserWithEmailAndPassword(email, password)
@@ -75,4 +82,43 @@ class FirebaseUtility @Inject constructor(
         ).limit(pagingLimit)
             .get()
 
+    fun addAddress(address: Address) =
+        fireStore.collection(USER_COLLECTION).document(firebaseAuth.uid!!).collection(
+            ADDRESS_COLLECTION
+        ).document().set(address)
+
+    fun getAddress() =
+        fireStore.collection(USER_COLLECTION).document(firebaseAuth.uid!!).collection(
+            ADDRESS_COLLECTION)
+    fun getCartProducts() =
+        fireStore.collection(USER_COLLECTION).document(firebaseAuth.uid!!).collection(
+            CART_COLLECTION
+        )
+
+    fun deleteCart(documentId: String) =
+        fireStore.collection(USER_COLLECTION).document(firebaseAuth.uid!!).collection(
+            CART_COLLECTION
+        ).document(documentId).delete()
+
+    fun getOfferProducts(category: String) =
+        fireStore.collection(PRODUCTS_COLLECTION).whereEqualTo(CATEGORIES_COLLECTION, category)
+            .whereNotEqualTo("offerPercentage", null).get()
+
+    fun addUpdateProductInCart(cartProduct: CartProduct) =
+        fireStore.collection(USER_COLLECTION).document(firebaseAuth.uid!!).collection(CART_COLLECTION)
+            .whereEqualTo("product.id", cartProduct.product.id).get()
+
+    fun getAllOrders() =
+        fireStore.collection(USER_COLLECTION).document(firebaseAuth.uid!!).collection(
+            ORDER_COLLECTION).get()
+
+    fun addOrderIntoUserCollection(order: Order) =
+        fireStore.collection(USER_COLLECTION)
+            .document(firebaseAuth.uid!!)
+            .collection(ORDER_COLLECTION)
+            .document()
+            .set(order)
+
+    fun addOrderIntoOrderCollection(order: Order) =
+        fireStore.collection("orders").document().set(order)
 }

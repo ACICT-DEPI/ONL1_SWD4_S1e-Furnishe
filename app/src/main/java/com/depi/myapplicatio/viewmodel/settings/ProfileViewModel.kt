@@ -2,10 +2,9 @@ package com.depi.myapplicatio.viewmodel.settings
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.depi.myapplicatio.util.state.Resource
 import com.depi.myapplicatio.data.models.User
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
+import com.depi.myapplicatio.data.remote.FirebaseUtility
+import com.depi.myapplicatio.util.state.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -14,8 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
-    private val firestore: FirebaseFirestore,
-    private val auth: FirebaseAuth
+    private val firebaseUtility: FirebaseUtility
 ) : ViewModel() {
 
     private val _user = MutableStateFlow<Resource<User>>(Resource.Unspecified())
@@ -29,7 +27,7 @@ class ProfileViewModel @Inject constructor(
         viewModelScope.launch {
             _user.emit(Resource.Loading())
         }
-        firestore.collection("user").document(auth.uid!!)
+        firebaseUtility.getUser()
             .addSnapshotListener { value, error ->
                 if (error != null) {
                     viewModelScope.launch {
@@ -46,8 +44,8 @@ class ProfileViewModel @Inject constructor(
             }
     }
 
-    fun logout(){
-        auth.signOut()
+    fun logout() {
+        firebaseUtility.logout()
     }
 
 }

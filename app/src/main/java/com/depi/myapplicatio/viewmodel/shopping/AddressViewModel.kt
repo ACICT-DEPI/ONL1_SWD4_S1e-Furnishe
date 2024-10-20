@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.depi.myapplicatio.util.state.Resource
 import com.depi.myapplicatio.data.models.Address
+import com.depi.myapplicatio.data.remote.FirebaseUtility
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,8 +17,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AddressViewModel @Inject constructor(
-    private val firestore: FirebaseFirestore,
-    private val auth: FirebaseAuth,
+
+    private val firebaseUtility: FirebaseUtility
 ) : ViewModel() {
 
     private val _addNewAddress = MutableStateFlow<Resource<Address>>(Resource.Unspecified())
@@ -32,8 +33,7 @@ class AddressViewModel @Inject constructor(
 
         if (validateInputs) {
             viewModelScope.launch { _addNewAddress.emit(Resource.Loading()) }
-            firestore.collection("user").document(auth.uid!!).collection("address").document()
-                .set(address).addOnSuccessListener {
+            firebaseUtility.addAddress(address).addOnSuccessListener {
                     viewModelScope.launch { _addNewAddress.emit(Resource.Success(address)) }
                 }.addOnFailureListener {
                     viewModelScope.launch { _addNewAddress.emit(Resource.Error(it.message.toString())) }

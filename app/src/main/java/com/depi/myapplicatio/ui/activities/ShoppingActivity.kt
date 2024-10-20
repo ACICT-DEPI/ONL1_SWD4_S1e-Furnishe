@@ -1,8 +1,9 @@
-package com.depi.myapplicatio.activities
+package com.depi.myapplicatio.ui.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -19,7 +20,7 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class ShoppingActivity : AppCompatActivity() {
-    val binding by lazy{
+    val binding by lazy {
         ActivityShoppingBinding.inflate(layoutInflater)
     }
     val viewModel by viewModels<CartViewModel>()
@@ -36,15 +37,18 @@ class ShoppingActivity : AppCompatActivity() {
 
 
         lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED){
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.cartProducts.collectLatest {
-                    when(it){
+                    when (it) {
                         is Resource.Success -> {
                             val count = it.data?.size ?: 0
-                            val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+                            val bottomNavigation =
+                                findViewById<BottomNavigationView>(R.id.bottomNavigation)
                             bottomNavigation.getOrCreateBadge(R.id.cartFragment).apply {
                                 number = count
-                                backgroundColor = resources.getColor(R.color.g_blue)
+                                backgroundColor =
+                                    ContextCompat.getColor(this@ShoppingActivity, R.color.g_blue)
+
                             }
                         }
 
@@ -53,7 +57,6 @@ class ShoppingActivity : AppCompatActivity() {
                 }
             }
         }
-
 
 
     }

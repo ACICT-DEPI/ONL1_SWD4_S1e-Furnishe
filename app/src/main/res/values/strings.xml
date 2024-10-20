@@ -127,6 +127,13 @@
     <string name="_1600">$1600</string>
     <string name="easy_e_commerce_experience">Easy E-Commerce Experience</string>
     <string name="powered_by_depi_group">Powered By Depi Group</string>
+    <string name="_50">50$</string>
+    <string name="_1">1</string>
+    <string name="l">L</string>
+    <string name="address_location_ex_home">Address location Ex: Home</string>
+    <string name="g_details">Details</string>
+    <string name="lofcoding">Lofcoding</string>
+    <string name="_6000">$6000</string>
     <!--    <string name="open_menu">Open Menu</string>-->
 <!--    <string name="close_menu">Close Menu</string>-->
 <!--    <string name="my_store">My Store</string>-->

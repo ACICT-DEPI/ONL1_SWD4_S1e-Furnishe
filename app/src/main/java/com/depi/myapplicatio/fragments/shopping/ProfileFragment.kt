@@ -19,7 +19,7 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.depi.myapplicatio.MainActivity
 import com.depi.myapplicatio.R
-import com.depi.myapplicatio.activities.LoginRegisterActivity
+import com.depi.myapplicatio.ui.activities.LoginRegisterActivity
 import com.depi.myapplicatio.databinding.FragmentProfileBinding
 import com.depi.myapplicatio.util.state.Resource
 import com.depi.myapplicatio.util.viewutility.showBottomNavigationView

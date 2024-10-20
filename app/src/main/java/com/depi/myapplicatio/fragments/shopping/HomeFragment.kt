@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.depi.myapplicatio.R
 import com.depi.myapplicatio.adapters.HomeViewpagerAdapter
 import com.depi.myapplicatio.databinding.FragmentHomeBinding
@@ -40,6 +41,9 @@ class HomeFragment : Fragment() {
             FurnitureFragment(),
         )
 
+        binding.searchBar.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+        }
         binding.frameScan.setOnClickListener {
             val snackBar =
                 requireActivity().findViewById<CoordinatorLayout>(R.id.snackBar_coordinator)

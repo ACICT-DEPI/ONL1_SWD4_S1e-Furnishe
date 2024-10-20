@@ -6,8 +6,9 @@ object Constants {
         const val USER_COLLECTION = "user"
         const val ADDRESS_COLLECTION = "address"
         const val PRODUCTS_COLLECTION = "Products"
-        const val CATEGORIES_COLLECTION = "categories"
+        const val CATEGORIES_COLLECTION = "category"
         const val CART_COLLECTION = "cart"
+        const val ORDER_COLLECTION = "orders"
 
     }
     object SharedPreferencesConstants{

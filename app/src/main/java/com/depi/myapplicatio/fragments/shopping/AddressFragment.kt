@@ -73,7 +73,7 @@ class AddressFragment : Fragment() {
 
         val address = args.address
         if (address == null) {
-            binding.buttonDelelte.visibility = View.GONE
+            binding.buttonDelete.visibility = View.GONE
         } else {
             binding.apply {
                 edAddressTitle.setText(address.addressTitle)

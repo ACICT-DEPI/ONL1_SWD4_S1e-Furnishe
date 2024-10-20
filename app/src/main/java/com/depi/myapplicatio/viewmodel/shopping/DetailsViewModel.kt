@@ -4,11 +4,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.depi.myapplicatio.data.models.CartProduct
 import com.depi.myapplicatio.data.remote.FirebaseCommon
+import com.depi.myapplicatio.data.remote.FirebaseUtility
 
 
 import com.depi.myapplicatio.util.state.Resource
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -17,9 +16,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailsViewModel @Inject constructor(
-    private val firestore: FirebaseFirestore,
-    private val auth: FirebaseAuth,
-    private val firebaseCommon: FirebaseCommon
+    private val firebaseCommon: FirebaseCommon,
+    private val firebaseUtility: FirebaseUtility
 ) : ViewModel() {
 
     private val _addToCart = MutableStateFlow<Resource<CartProduct>>(Resource.Unspecified())
@@ -27,8 +25,7 @@ class DetailsViewModel @Inject constructor(
 
     fun addUpdateProductInCart(cartProduct: CartProduct) {
         viewModelScope.launch { _addToCart.emit(Resource.Loading()) }
-        firestore.collection("user").document(auth.uid!!).collection("cart")
-            .whereEqualTo("product.id", cartProduct.product.id).get()
+        firebaseUtility.addUpdateProductInCart(cartProduct)
             .addOnSuccessListener {
                 it.documents.let {
                     if (it.isEmpty()) { //Add new product

@@ -28,9 +28,9 @@
     <color name="g_circle_shadow">#B8D9FA</color>
     <color name="g_text_hint">#969899</color>
     <color name="g_orange">#F8BA00</color>
-
-
-
+    <color name="brown">#704F38</color>
+    <color name="Dark_grayish_brown">#3E3B39</color>
+    <color name="dark_grayish_brown">#4E4745</color>
 
 
 </resources>

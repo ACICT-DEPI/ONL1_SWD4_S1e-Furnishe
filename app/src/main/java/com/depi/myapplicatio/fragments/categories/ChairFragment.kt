@@ -10,6 +10,7 @@ import com.depi.myapplicatio.viewmodel.factory.BaseCategoryViewModelFactoryFacto
 import com.depi.myapplicatio.util.state.Resource
 import com.depi.myapplicatio.viewmodel.shopping.CategoryViewModel
 import com.depi.myapplicatio.data.models.Category
+import com.depi.myapplicatio.data.remote.FirebaseUtility
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,11 +20,12 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class ChairFragment : BaseCategoryFragment() {
 
+
     @Inject
-    lateinit var firestore: FirebaseFirestore
+    lateinit var firebaseUtility: FirebaseUtility
 
     val viewModel by viewModels<CategoryViewModel> {
-        BaseCategoryViewModelFactoryFactory(firestore, Category.Chair)
+        BaseCategoryViewModelFactoryFactory( Category.Accessory,firebaseUtility)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
