@@ -102,6 +102,7 @@ class ProfileFragment : Fragment() {
         binding.linearLogOut.setOnClickListener {
             viewModel.logout()
             val intent = Intent(requireActivity(), MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or  Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
             requireActivity().finish()
         }

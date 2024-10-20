@@ -30,7 +30,14 @@
     <color name="g_orange">#F8BA00</color>
     <color name="brown">#704F38</color>
     <color name="Dark_grayish_brown">#3E3B39</color>
-    <color name="dark_grayish_brown">#4E4745</color>
+    <color name="_brown">#7C5D47</color>
+    <color name="brown_hover">#8B6B52</color>
+    <color name="dark_charcoal_gray">#1F2029</color>
+    <color name="light_gray">#C5C5C5</color>
+    <color name="medium_gray">#797979</color>
+    <color name="whitish_gray">#EDEDED</color>
+    <color name="grayish_brown">#4E4745</color>
+    <color name="dark_grayish_brown">#3E3B39</color>
 
 
 </resources>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/splash_screen">
@@ -10,14 +11,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".55" />
+        app:layout_constraintGuide_percent="0.54" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideLineTextEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.6" />
+        app:layout_constraintGuide_percent="0.83" />
+
+    <TextView
+        android:id="@+id/app_Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="@color/g_black"
+        android:textSize="@dimen/_20ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideLineTextStart" />
 
     <TextView
         android:id="@+id/text_splash"
@@ -28,8 +42,10 @@
         android:textColor="@color/g_black"
         android:textSize="@dimen/_20ssp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/guideLineTextEnd"
-        app:layout_constraintTop_toBottomOf="@id/guideLineTextStart" />
+        app:layout_constraintBottom_toTopOf="@+id/powered_text"
+        app:layout_constraintTop_toTopOf="@+id/guideLineTextEnd"
+        app:layout_constraintVertical_bias="0.19"
+        tools:layout_editor_absoluteX="0dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideVersion"
@@ -42,11 +58,11 @@
         android:id="@+id/powered_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/powered_by_depi_group"
         android:textAlignment="center"
         android:textSize="@dimen/_12ssp"
-        android:text="@string/powered_by_depi_group"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideVersion"/>
+        app:layout_constraintTop_toBottomOf="@id/guideVersion" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

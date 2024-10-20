@@ -16,18 +16,18 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.depi.myapplication.R
 import com.depi.myapplication.adapters.AddressAdapter
-
 import com.depi.myapplication.adapters.BillingProductsAdapter
 import com.depi.myapplication.data.models.Address
 import com.depi.myapplication.data.models.CartProduct
 import com.depi.myapplication.data.models.order.Order
 import com.depi.myapplication.data.models.order.OrderStatus
 import com.depi.myapplication.databinding.FragmentBillingBinding
-import com.depi.myapplication.util.recyclerdecoration.HorizontalDecoration
 import com.depi.myapplication.ui.state.Resource
-import com.depi.myapplication.util.viewutility.showDialogue
 import com.depi.myapplication.ui.viewmodel.billing.BillingViewModel
 import com.depi.myapplication.ui.viewmodel.settings.OrderViewModel
+import com.depi.myapplication.util.recyclerdecoration.HorizontalDecoration
+import com.depi.myapplication.util.viewutility.showDialogue
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -71,6 +71,7 @@ class BillingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupBillingRv()
         setupAddressRv()
+        onHomeClick()
 
         // TODO: Collect Address Details
         lifecycleScope.launch {
@@ -153,6 +154,14 @@ class BillingFragment : Fragment() {
         billingAdapter.differ.submitList(productsList)
         binding.tvTotalPrice.text = "$ $totalPrice"
 
+    }
+
+    private fun onHomeClick() {
+        val btm = activity?.findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        btm?.menu?.getItem(0)?.setOnMenuItemClickListener {
+            activity?.onBackPressed()
+            true
+        }
     }
 
     private fun showPlaceOrderConfirmDialogue() {

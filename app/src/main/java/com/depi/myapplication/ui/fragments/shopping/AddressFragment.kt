@@ -12,10 +12,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.depi.myapplication.R
+import com.depi.myapplication.data.models.Address
 import com.depi.myapplication.databinding.FragmentAddressBinding
 import com.depi.myapplication.ui.state.Resource
 import com.depi.myapplication.ui.viewmodel.shopping.AddressViewModel
-import com.depi.myapplication.data.models.Address
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -25,7 +27,6 @@ class AddressFragment : Fragment() {
     private lateinit var binding: FragmentAddressBinding
     val viewModel by viewModels<AddressViewModel>()
     private val args by navArgs<AddressFragmentArgs>()
-
 
 
     override fun onCreateView(
@@ -70,7 +71,7 @@ class AddressFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        onHomeClick()
         val address = args.address
         if (address == null) {
             binding.buttonDelete.visibility = View.GONE
@@ -102,4 +103,11 @@ class AddressFragment : Fragment() {
 
     }
 
+    private fun onHomeClick() {
+        val btm = activity?.findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        btm?.menu?.getItem(0)?.setOnMenuItemClickListener {
+            activity?.onBackPressed()
+            true
+        }
+    }
 }

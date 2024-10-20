@@ -1,95 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/blury_background"
-        android:contentDescription="@string/app_name" />
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <TextView
-            android:id="@+id/tvAppName"
-            style="@style/h3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="120dp"
-            android:drawablePadding="6dp"
-            android:text="@string/app_name"
-            android:textStyle="bold"
+        <ImageView
+            android:id="@+id/backgroundImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/img2"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-
             app:layout_constraintTop_toTopOf="parent"
-            app:drawableStartCompat="@drawable/ic_kleine_shape" />
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="ContentDescription" />
 
-
-        <TextView
-            android:id="@+id/tvRightAddressForShopping"
-            style="@style/h4"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinestartLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="45dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.09" />
 
-            android:gravity="center"
-
-            android:text="@string/g_the_right_address"
-
-            android:textAlignment="center"
-            android:textSize="35sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvAppName" />
-
-
-        <TextView
-            android:id="@+id/tvQuality"
-            style="@style/h2"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinestartRight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:text="@string/g_best_quality"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="@id/tvRightAddressForShopping"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.91" />
 
-            app:layout_constraintStart_toStartOf="@id/tvRightAddressForShopping"
-            app:layout_constraintTop_toBottomOf="@id/tvRightAddressForShopping" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinestarttop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.06" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/grayish_brown"
+            app:layout_constraintEnd_toEndOf="@id/guidelinestartRight"
+            app:layout_constraintStart_toStartOf="@id/guidelinestartLeft"
+            app:layout_constraintTop_toBottomOf="@+id/guidelinestarttop" />
+        <!--  Title TextView  -->
+        <!--  Description TextView  -->
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="132dp"
+            android:fontFamily="@font/alata"
+            android:text="@string/furniture"
+            android:textColor="@color/grayish_brown"
+            android:textSize="60sp"
+            app:layout_constraintEnd_toEndOf="@id/guidelinestartRight"
+            app:layout_constraintStart_toStartOf="@+id/guidelinestartLeft"
+            app:layout_constraintTop_toBottomOf="@id/guidelinestarttop" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/desciption"
+            android:textColor="@color/grayish_brown"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/guidelinestartRight"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/guidelinestartLeft"
+            app:layout_constraintTop_toBottomOf="@+id/text1" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonRegisterAccountOptions"
-            style="@style/blueButtonStyle"
-            android:layout_width="@dimen/mediumButtonWidth"
-
-            android:layout_height="@dimen/mediumButtonHeight"
-            android:text="@string/g_register"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/tvQuality"
-            app:layout_constraintStart_toStartOf="@id/tvQuality"
-
-            app:layout_constraintTop_toBottomOf="@id/tvQuality" />
-
+            android:layout_width="140dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="220dp"
+            android:background="@drawable/rounded_button"
+            android:text="@string/sign_up"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/guidelinestartLeft"
+            app:layout_constraintTop_toBottomOf="@id/text2"
+            tools:layout_editor_absoluteX="38dp"
+            tools:layout_editor_absoluteY="570dp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonLoginAccountOptions"
-            style="@style/whiteButtonStyle"
-            android:layout_width="200dp"
+            android:layout_width="140dp"
             android:layout_height="55dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/g_log_in"
+            android:layout_marginStart="1dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/rounded_button_white"
+            android:text="@string/login"
+            android:textColor="@color/grayish_brown"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/tvQuality"
-            app:layout_constraintStart_toStartOf="@id/tvQuality"
-            app:layout_constraintTop_toBottomOf="@id/buttonRegisterAccountOptions" />
+            app:layout_constraintStart_toEndOf="@id/guidelinestartLeft"
+            app:layout_constraintTop_toBottomOf="@id/buttonRegisterAccountOptions"
+            tools:layout_editor_absoluteX="38dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </FrameLayout>

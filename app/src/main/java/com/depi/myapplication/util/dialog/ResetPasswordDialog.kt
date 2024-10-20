@@ -16,8 +16,8 @@ fun Fragment.setupBottomSheetDialog(
     dialog.behavior.state = BottomSheetBehavior.STATE_EXPANDED
     dialog.show()
 
-    val edEmail = view.findViewById<EditText>(R.id.edResetEmail)
-    val buttonSend = view.findViewById<Button>(R.id.buttonSendResetPassword)
+    val edEmail = view.findViewById<EditText>(R.id.edResetPassword)
+    val buttonSend = view.findViewById<Button>(R.id.buttonsendResetPassword)
     val buttonCancel = view.findViewById<Button>(R.id.buttonCancelResetPassword)
 
     buttonSend.setOnClickListener {

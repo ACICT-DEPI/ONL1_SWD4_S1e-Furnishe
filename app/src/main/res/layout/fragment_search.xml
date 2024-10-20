@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".fragments.shopping.SearchFragment">
+    tools:context=".ui.fragments.shopping.SearchFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -110,6 +110,32 @@
             app:layout_constraintStart_toStartOf="@id/guideline1"
             app:layout_constraintTop_toBottomOf="@id/ed_search" />
 
+        <ImageView
+            android:id="@+id/noItems"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_empty_box"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/guideline9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+        <TextView
+            android:id="@+id/tv_no_items"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/no_items_found"
+            android:textAlignment="center"
+            android:visibility="gone"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold"
+            android:textColor="@color/g_black"
+            app:layout_constraintEnd_toEndOf="@id/noItems"
+            app:layout_constraintStart_toStartOf="@id/noItems"
+            app:layout_constraintTop_toBottomOf="@id/noItems" />
+
         <TextView
             android:id="@+id/tv_categories"
             android:layout_width="wrap_content"
@@ -119,10 +145,11 @@
             android:gravity="center"
             android:text="@string/g_categories"
             android:textColor="@color/g_black"
-            android:visibility="gone"
             android:textSize="@dimen/_20sdp"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="@id/guideline1"
             app:layout_constraintTop_toBottomOf="@id/rv_search" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_categories"
@@ -131,11 +158,11 @@
             android:layout_marginTop="10dp"
             android:overScrollMode="never"
             android:scrollbars="none"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@id/guideline2"
             app:layout_constraintStart_toStartOf="@id/guideline1"
-            app:layout_constraintTop_toBottomOf="@id/tv_categories"
+            app:layout_constraintTop_toBottomOf="@id/tv_categories" />
 
-            />
 
         <ProgressBar
             android:id="@+id/progressbar_categories"
@@ -194,29 +221,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.46785226" />
+            app:layout_constraintGuide_percent="0.50" />
 
         <ProgressBar
             android:id="@+id/product_search_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:indeterminateTint="@color/g_black"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/rv_search"
             app:layout_constraintEnd_toEndOf="@id/rv_search"
             app:layout_constraintStart_toStartOf="@id/rv_search"
-            app:layout_constraintTop_toTopOf="@id/rv_search"
-            android:visibility="gone"/>
+            app:layout_constraintTop_toTopOf="@id/rv_search" />
 
         <ProgressBar
             android:id="@+id/categories_search_progress"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:indeterminateTint="@color/g_black"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/rv_categories"
             app:layout_constraintEnd_toEndOf="@id/rv_categories"
             app:layout_constraintStart_toStartOf="@id/rv_categories"
-            app:layout_constraintTop_toTopOf="@id/rv_categories"
-            android:visibility="gone"/>
+            app:layout_constraintTop_toTopOf="@id/rv_categories" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

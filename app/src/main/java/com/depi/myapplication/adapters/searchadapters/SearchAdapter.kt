@@ -50,6 +50,7 @@ class SearchAdapter : RecyclerView.Adapter<SearchViewHolder>() {
             onProductClicked?.invoke(product)
         }
 
+
     }
 
     var onProductClicked: ((Product) -> Unit)? = null

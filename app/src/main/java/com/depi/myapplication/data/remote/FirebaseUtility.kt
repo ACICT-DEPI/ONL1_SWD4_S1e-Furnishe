@@ -46,12 +46,15 @@ class FirebaseUtility @Inject constructor(
         productsCollection
             .orderBy("name")
             .startAt(query)
-            .limit(5)
+            .endAt("\u03A9+$query")
+            .limit(10)
             .get()
 
 
     fun login(email: String, password: String) =
         firebaseAuth.signInWithEmailAndPassword(email, password)
+
+
 
     fun logout() = firebaseAuth.signOut()
 

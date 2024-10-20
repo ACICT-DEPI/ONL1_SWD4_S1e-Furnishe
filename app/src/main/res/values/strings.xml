@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">DigiCommerce</string>
-    <string name="g_app_name">DigiCommerce.</string>
+    <string name="app_name">Furnishe°</string>
+    <string name="g_app_name">Furnishe°</string>
     <string name="g_the_right_address">The Right Address \n For Shopping \n Anyday</string>
 
     <!--    <string name="g_for_shopping">For Shopping</string>-->
@@ -140,6 +140,27 @@
     <string name="version_1_0">Version 1.0</string>
     <string name="help">Help</string>
     <string name="name">Name</string>
+    <string name="g_last_name">Last Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="no_items_found">No Items Found</string>
+    <string name="furniture">Furniture</string>
+    <string name="desciption" translatable="false">Create the perfect Furniture for your needs by \n \t mixing and matching shapes, materials
+        , \n designs, and colors until you find your favorite \n \t \t \t \t \t \t \t \t \t \t \t combination.</string>
+    <string name="sign_up" translatable="false">\t Sign Up</string>
+    <string name="login">\t Login</string>
+    <string name="start" translatable="false">Start \n</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="don_t_have_an_account">Don\'t have an account ? </string>
+    <string name="description_signIn">Hi ! Welcome back ,you \'ve been missed</string>
+    <string name="create_account">Create Account</string>
+    <string name="description_sign_up">Fill your information below or register \n \t \t \t \t \t with your social account</string>
+    <string name="we_will_send_you_the_password_reset_link_to_your_email" translatable="false">We will send you the password reset link to your Email</string>
+    <string name="enter_your_email" translatable="false">Enter your Email</string>
+    <string name="send" translatable="false">Send</string>
+    <string name="cancel">Cancel</string>
+    <string name="reset_password" translatable="false">Forgot Password</string>
+    <string name="already_have_an_account" translatable="false">Already have an account ?</string>
+
     <!--    <string name="open_menu">Open Menu</string>-->
 <!--    <string name="close_menu">Close Menu</string>-->
 <!--    <string name="my_store">My Store</string>-->

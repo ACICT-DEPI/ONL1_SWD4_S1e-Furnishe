@@ -141,6 +141,17 @@
     <string name="version_1_0">Version 1.0</string>
     <string name="name">الاسم</string>
     <string name="help">المساعدة</string>
+    <string name="g_last_name">Last Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="no_items_found">No Items Found</string>
+    <string name="furniture">Furniture</string>
+    <string name="login">\\t Login</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="don_t_have_an_account"><![CDATA[>Don\\\'t have an account ?]]></string>
+    <string name="description_signIn">Hi ! Welcome back ,you \\\'ve been missed</string>
+    <string name="create_account">Create Account</string>
+    <string name="description_sign_up">Fill your information below or register \\n \\t\\t\\t\\t\\t with your social account</string>
+    <string name="cancel">Cancel</string>
 
 
 </resources>

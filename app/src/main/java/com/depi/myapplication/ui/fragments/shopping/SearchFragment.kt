@@ -97,9 +97,18 @@ class SearchFragment : Fragment() {
                         }
 
                         is Resource.Success -> {
-                            searchAdapter.diffUtil.submitList(state.data)
-                            binding.productSearchProgress.visibility = View.GONE
-                            showChancelTv()
+                            if (state.data!!.isNotEmpty()) {
+                                binding.tvNoItems.visibility = View.GONE
+                                binding.noItems.visibility = View.GONE
+                                searchAdapter.diffUtil.submitList(state.data)
+                                binding.productSearchProgress.visibility = View.GONE
+                                showChancelTv()
+                            } else {
+                                binding.tvNoItems.visibility = View.VISIBLE
+                                binding.noItems.visibility = View.VISIBLE
+                                binding.productSearchProgress.visibility = View.GONE
+                            }
+
                         }
 
                         is Resource.Error -> {
