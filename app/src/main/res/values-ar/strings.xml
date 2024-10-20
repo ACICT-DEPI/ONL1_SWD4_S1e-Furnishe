@@ -135,6 +135,12 @@
     <string name="_1">1</string>
     <string name="l">L</string>
     <string name="address_location_ex_home">Address location Ex: Home</string>
+    <string name="customer_support">الدعم الفني</string>
+    <string name="help_text">كيف يمكننا المساعدة</string>
+    <string name="chatbot_will_be_available_in_second_version_n_keep_updated">خدمة الرد الالي ستكون متوفرة قريبا في النسخة القادمة</string>
+    <string name="version_1_0">Version 1.0</string>
+    <string name="name">الاسم</string>
+    <string name="help">المساعدة</string>
 
 
 </resources>

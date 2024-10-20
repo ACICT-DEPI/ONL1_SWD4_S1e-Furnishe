@@ -18,12 +18,13 @@
             android:layout_width="10dp"
             android:layout_height="10sp"
             android:layout_gravity="center"
-            android:src="@color/black" />
+            android:src="@color/black"
+            tools:ignore="SmallSp" />
 
         <TextView
-            android:id="@+id/tvOrderId"
+            android:id="@+id/tvOrderName"
             style="@style/MediumTextViewThin"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_weight="1"
@@ -32,9 +33,17 @@
         <ImageView
             android:layout_width="15dp"
             android:layout_height="15dp"
+            android:contentDescription="@string/app_name"
             android:src="@drawable/ic_arrow" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvOrderId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        tools:text="@tools:sample/lorem" />
 
     <TextView
         android:id="@+id/tvOrderDate"

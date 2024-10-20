@@ -9,11 +9,11 @@ plugins {
 }
 
 android {
-    namespace 'com.depi.myapplicatio'
+    namespace 'com.depi.myapplication'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.depi.myapplicatio"
+        applicationId "com.depi.myapplication"
         minSdk 24
         targetSdk 34
         versionCode 1
@@ -94,6 +94,9 @@ dependencies {
     //viewpager2 indicator
     implementation 'com.github.zhpanvip:viewpagerindicator:1.2.3'
 
+
+
+    implementation 'it.xabaras.android:viewpagerindicator:2.0'
 
 
     //intuit

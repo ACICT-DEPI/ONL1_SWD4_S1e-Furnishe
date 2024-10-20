@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -174,6 +173,22 @@
                     android:layout_height="wrap_content" />
             </LinearLayout>
         </LinearLayout>
+
+
+        <it.xabaras.android.viewpagerindicator.widget.ViewPagerIndicator2
+            android:id="@+id/circle_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:defaultIndicatorTheme="light"
+            app:itemDividerWidth="8dp"
+            app:itemRadius="4dp"
+            app:itemSelectedColor="@color/brown"
+            app:itemUnselectedColor="@color/g_gray700"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardProductImages" />
 
         <com.github.leandroborgesferreira.loadingbutton.customViews.CircularProgressButton
             android:id="@+id/buttonAddToCart"
