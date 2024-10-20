@@ -17,12 +17,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.depi.myapplicatio.MainActivity
 import com.depi.myapplicatio.R
 import com.depi.myapplicatio.activities.LoginRegisterActivity
 import com.depi.myapplicatio.databinding.FragmentProfileBinding
-import com.depi.myapplicatio.util.Resource
-import com.depi.myapplicatio.util.showBottomNavigationView
-import com.depi.myapplicatio.viewmodel.ProfileViewModel
+import com.depi.myapplicatio.util.state.Resource
+import com.depi.myapplicatio.util.viewutility.showBottomNavigationView
+import com.depi.myapplicatio.viewmodel.settings.ProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -64,7 +65,7 @@ class ProfileFragment : Fragment() {
 
         binding.linearLogOut.setOnClickListener {
             viewModel.logout()
-            val intent = Intent(requireActivity(), LoginRegisterActivity::class.java)
+            val intent = Intent(requireActivity(), MainActivity::class.java)
             startActivity(intent)
             requireActivity().finish()
         }

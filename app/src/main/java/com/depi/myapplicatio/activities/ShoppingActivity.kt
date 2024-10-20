@@ -10,8 +10,8 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.depi.myapplicatio.R
 import com.depi.myapplicatio.databinding.ActivityShoppingBinding
-import com.depi.myapplicatio.util.Resource
-import com.depi.myapplicatio.viewmodel.CartViewModel
+import com.depi.myapplicatio.util.state.Resource
+import com.depi.myapplicatio.viewmodel.shopping.CartViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest

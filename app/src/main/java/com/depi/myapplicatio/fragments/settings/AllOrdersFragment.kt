@@ -15,8 +15,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.depi.myapplicatio.adapters.AllOrdersAdapter
 import com.depi.myapplicatio.databinding.FragmentOrdersBinding
-import com.depi.myapplicatio.util.Resource
-import com.depi.myapplicatio.viewmodel.AllOrdersViewModel
+import com.depi.myapplicatio.util.state.Resource
+import com.depi.myapplicatio.viewmodel.settings.AllOrdersViewModel
+
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -25,7 +26,7 @@ import kotlinx.coroutines.launch
 class AllOrdersFragment : Fragment() {
     private lateinit var binding: FragmentOrdersBinding
     val viewModel by viewModels<AllOrdersViewModel>()
-    private val ordersAdapter by lazy { AllOrdersAdapter() }
+    private val ordersAdapter by lazy { AllOrdersAdapter(requireContext()) }
 
     override fun onCreateView(
         inflater: LayoutInflater,

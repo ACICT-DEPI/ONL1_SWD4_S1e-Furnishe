@@ -16,8 +16,8 @@ import com.depi.myapplicatio.R
 import com.depi.myapplicatio.activities.ShoppingActivity
 import com.depi.myapplicatio.databinding.FragmentLoginBinding
 import com.depi.myapplicatio.dialog.setupBottomSheetDialog
-import com.depi.myapplicatio.util.Resource
-import com.depi.myapplicatio.viewmodel.LoginViewModel
+import com.depi.myapplicatio.util.state.Resource
+import com.depi.myapplicatio.viewmodel.loginregister.LoginViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

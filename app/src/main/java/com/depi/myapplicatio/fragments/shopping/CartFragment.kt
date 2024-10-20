@@ -16,12 +16,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.depi.myapplicatio.R
 import com.depi.myapplicatio.adapters.CartProductAdapter
+import com.depi.myapplicatio.data.remote.FirebaseCommon
 import com.depi.myapplicatio.databinding.FragmentCartBinding
-import com.depi.myapplicatio.firebase.FirebaseCommon
-import com.depi.myapplicatio.util.Resource
-import com.depi.myapplicatio.util.VerticalItemDecoration
-import com.depi.myapplicatio.util.showDialogue
-import com.depi.myapplicatio.viewmodel.CartViewModel
+
+import com.depi.myapplicatio.util.state.Resource
+import com.depi.myapplicatio.util.recyclerdecoration.VerticalItemDecoration
+import com.depi.myapplicatio.util.viewutility.showDialogue
+import com.depi.myapplicatio.viewmodel.shopping.CartViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 

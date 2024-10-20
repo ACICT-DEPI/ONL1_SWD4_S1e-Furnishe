@@ -13,9 +13,9 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.depi.myapplicatio.databinding.FragmentAddressBinding
-import com.depi.myapplicatio.util.Resource
-import com.depi.myapplicatio.viewmodel.AddressViewModel
-import com.depi.myapplicatio.data.Address
+import com.depi.myapplicatio.util.state.Resource
+import com.depi.myapplicatio.viewmodel.shopping.AddressViewModel
+import com.depi.myapplicatio.data.models.Address
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

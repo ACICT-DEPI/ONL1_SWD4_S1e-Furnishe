@@ -1,17 +1,22 @@
 package com.depi.myapplicatio.adapters
 
+import android.content.Context
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.depi.myapplicatio.R
-import com.depi.myapplicatio.data.Address
+import com.depi.myapplicatio.data.models.Address
+
 import com.depi.myapplicatio.databinding.AddressRvItemBinding
 
-class AddressAdapter : Adapter<AddressAdapter.AddressViewHolder>() {
+class AddressAdapter(
+    val context: Context
+) : Adapter<AddressAdapter.AddressViewHolder>() {
 
     inner class AddressViewHolder(val binding: AddressRvItemBinding) :
         ViewHolder(binding.root) {
@@ -20,10 +25,10 @@ class AddressAdapter : Adapter<AddressAdapter.AddressViewHolder>() {
                 buttonAddress.text = address.addressTitle
                 if (isSelected) {
                     buttonAddress.background =
-                        ColorDrawable(itemView.context.resources.getColor(R.color.g_blue))
+                        ColorDrawable(ContextCompat.getColor(context, R.color.g_blue))
                 } else {
                     buttonAddress.background =
-                        ColorDrawable(itemView.context.resources.getColor(R.color.g_white))
+                        ColorDrawable(ContextCompat.getColor(context, R.color.g_white))
                 }
             }
         }

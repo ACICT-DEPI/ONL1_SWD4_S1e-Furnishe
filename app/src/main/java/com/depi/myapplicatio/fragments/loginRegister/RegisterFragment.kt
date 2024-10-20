@@ -12,11 +12,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.depi.myapplicatio.R
-import com.depi.myapplicatio.data.User
+import com.depi.myapplicatio.data.models.User
 import com.depi.myapplicatio.databinding.FragmentRegisterBinding
-import com.depi.myapplicatio.util.RegisterValidation
-import com.depi.myapplicatio.util.Resource
-import com.depi.myapplicatio.viewmodel.RegisterViewModel
+import com.depi.myapplicatio.util.registerutility.RegisterValidation
+import com.depi.myapplicatio.util.state.Resource
+import com.depi.myapplicatio.viewmodel.loginregister.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

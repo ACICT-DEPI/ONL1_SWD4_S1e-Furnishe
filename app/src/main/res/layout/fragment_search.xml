@@ -22,11 +22,13 @@
             android:fontFamily="@font/poppins_thin"
             android:gravity="center_vertical"
             android:hint="@string/g_search_now"
-            android:textStyle="bold"
+            android:importantForAutofill="no"
+            android:inputType="text"
             android:paddingStart="@dimen/_12sdp"
             android:singleLine="true"
             android:textColor="@color/g_icon_tint"
             android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/guideline4"
             app:layout_constraintEnd_toEndOf="@id/guideline3"
             app:layout_constraintHorizontal_bias="0.0"
@@ -55,6 +57,7 @@
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp"
                 android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_scan" />
         </FrameLayout>
 
@@ -76,6 +79,7 @@
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp"
                 android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_microphone" />
 
         </FrameLayout>
@@ -99,9 +103,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_search"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="@id/guideline2"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/guideline1"
             app:layout_constraintTop_toBottomOf="@id/ed_search" />
 
@@ -114,6 +119,7 @@
             android:gravity="center"
             android:text="@string/g_categories"
             android:textColor="@color/g_black"
+            android:visibility="gone"
             android:textSize="@dimen/_20sdp"
             app:layout_constraintStart_toStartOf="@id/guideline1"
             app:layout_constraintTop_toBottomOf="@id/rv_search" />
@@ -189,6 +195,30 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.46785226" />
+
+        <ProgressBar
+            android:id="@+id/product_search_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/g_black"
+            app:layout_constraintBottom_toBottomOf="@id/rv_search"
+            app:layout_constraintEnd_toEndOf="@id/rv_search"
+            app:layout_constraintStart_toStartOf="@id/rv_search"
+            app:layout_constraintTop_toTopOf="@id/rv_search"
+            android:visibility="gone"/>
+
+        <ProgressBar
+            android:id="@+id/categories_search_progress"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:indeterminateTint="@color/g_black"
+            app:layout_constraintBottom_toBottomOf="@id/rv_categories"
+            app:layout_constraintEnd_toEndOf="@id/rv_categories"
+            app:layout_constraintStart_toStartOf="@id/rv_categories"
+            app:layout_constraintTop_toTopOf="@id/rv_categories"
+            android:visibility="gone"/>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

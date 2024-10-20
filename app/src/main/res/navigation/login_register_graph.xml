@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/login_register_graph"
-    app:startDestination="@id/introductionFragment">
+    app:startDestination="@id/splashScreenFragment">
 
     <fragment
         android:id="@+id/introductionFragment"
 
         android:name="com.depi.myapplicatio.fragments.loginRegister.IntroductionFragment"
         android:label="IntroductionFragment"
-        tools:layout="@layout/fragment_introduction">
+        tools:layout="@layout/fragment_introdcution">
         <action
             android:id="@+id/action_introductionFragment_to_accountOptionsFragment"
             app:destination="@id/accountOptionsFragment"
@@ -67,6 +67,18 @@
             app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/accountOptionsFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.depi.myapplicatio.fragments.loginRegister.SplashScreenFragment"
+        android:label="SplashScreenFragment"
+        tools:layout="@layout/fragment_splash_screen">
+        <action
+            android:id="@+id/action_splashScreenFragment_to_accountOptionsFragment"
+            app:destination="@id/accountOptionsFragment" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_introductionFragment"
+            app:destination="@id/introductionFragment" />
     </fragment>
 </navigation>
 

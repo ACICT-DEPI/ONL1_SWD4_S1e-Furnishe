@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.depi.myapplicatio.adapters.BestProductsAdapter
 import com.depi.myapplicatio.R
 import com.depi.myapplicatio.databinding.FragmentBaseCategoryBinding
-import com.depi.myapplicatio.util.HorizontalDecoration
-import com.depi.myapplicatio.util.showBottomNavigationView
+import com.depi.myapplicatio.util.recyclerdecoration.HorizontalDecoration
+import com.depi.myapplicatio.util.viewutility.showBottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

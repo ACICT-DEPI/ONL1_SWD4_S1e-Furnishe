@@ -15,11 +15,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.depi.myapplicatio.R
-import com.depi.myapplicatio.data.CartProduct
+import com.depi.myapplicatio.data.models.CartProduct
 import com.depi.myapplicatio.databinding.FragmentProductDetailsBinding
-import com.depi.myapplicatio.util.Resource
-import com.depi.myapplicatio.util.hideBottomNavigationView
-import com.depi.myapplicatio.viewmodel.DetailsViewModel
+import com.depi.myapplicatio.util.state.Resource
+import com.depi.myapplicatio.util.viewutility.hideBottomNavigationView
+import com.depi.myapplicatio.viewmodel.shopping.DetailsViewModel
 import com.depi.myapplicatio.adapters.ColorsAdapter
 import com.depi.myapplicatio.adapters.SizesAdapter
 import com.depi.myapplicatio.adapters.ViewPager2Images

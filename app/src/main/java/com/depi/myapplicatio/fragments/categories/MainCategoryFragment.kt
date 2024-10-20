@@ -20,10 +20,10 @@ import com.depi.myapplicatio.adapters.BestProductsAdapter
 import com.depi.myapplicatio.R
 import com.depi.myapplicatio.adapters.SpecialProductsAdapter
 import com.depi.myapplicatio.databinding.FragmentMainCategoryBinding
-import com.depi.myapplicatio.util.HorizontalDecoration
-import com.depi.myapplicatio.util.Resource
-import com.depi.myapplicatio.util.showBottomNavigationView
-import com.depi.myapplicatio.viewmodel.MainCategoryViewModel
+import com.depi.myapplicatio.util.recyclerdecoration.HorizontalDecoration
+import com.depi.myapplicatio.util.state.Resource
+import com.depi.myapplicatio.util.viewutility.showBottomNavigationView
+import com.depi.myapplicatio.viewmodel.shopping.MainCategoryViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

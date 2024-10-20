@@ -1,19 +1,23 @@
 package com.depi.myapplicatio.adapters
 
+import android.content.Context
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.depi.myapplicatio.R
 import com.depi.myapplicatio.databinding.OrderItemBinding
-import com.depi.myapplicatio.data.order.Order
-import com.depi.myapplicatio.data.order.OrderStatus
-import com.depi.myapplicatio.data.order.getOrderStatus
+import com.depi.myapplicatio.data.models.order.Order
+import com.depi.myapplicatio.data.models.order.OrderStatus
+import com.depi.myapplicatio.data.models.order.getOrderStatus
 
-class AllOrdersAdapter : Adapter<AllOrdersAdapter.OrdersViewHolder>() {
+class AllOrdersAdapter(
+    val context: Context
+) : Adapter<AllOrdersAdapter.OrdersViewHolder>() {
 
     inner class OrdersViewHolder(private val binding: OrderItemBinding) : ViewHolder(binding.root) {
         fun bind(order: Order) {
@@ -24,22 +28,22 @@ class AllOrdersAdapter : Adapter<AllOrdersAdapter.OrdersViewHolder>() {
 
                 val colorDrawable = when (getOrderStatus(order.orderStatus)) {
                     is OrderStatus.Ordered -> {
-                        ColorDrawable(resources.getColor(R.color.g_orange_yellow))
+                        ColorDrawable(ContextCompat.getColor(context, R.color.g_orange_yellow))
                     }
                     is OrderStatus.Confirmed -> {
-                        ColorDrawable(resources.getColor(R.color.g_blue))
+                        ColorDrawable(ContextCompat.getColor(context, R.color.g_blue))
                     }
                     is OrderStatus.Delivered -> {
-                        ColorDrawable(resources.getColor(R.color.g_blue))
+                        ColorDrawable(ContextCompat.getColor(context, R.color.g_blue))
                     }
                     is OrderStatus.Shipped -> {
-                        ColorDrawable(resources.getColor(R.color.g_blue))
+                        ColorDrawable(ContextCompat.getColor(context, R.color.g_blue))
                     }
                     is OrderStatus.Canceled -> {
-                        ColorDrawable(resources.getColor(R.color.g_red))
+                        ColorDrawable(ContextCompat.getColor(context, R.color.g_red))
                     }
                     is OrderStatus.Returned -> {
-                        ColorDrawable(resources.getColor(R.color.g_red))
+                        ColorDrawable(ContextCompat.getColor(context, R.color.g_red))
                     }
                 }
 

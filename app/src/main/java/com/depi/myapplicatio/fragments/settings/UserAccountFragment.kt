@@ -18,11 +18,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.depi.myapplicatio.data.User
+import com.depi.myapplicatio.data.models.User
 import com.depi.myapplicatio.databinding.FragmentUserAccountBinding
 import com.depi.myapplicatio.dialog.setupBottomSheetDialog
-import com.depi.myapplicatio.util.Resource
-import com.depi.myapplicatio.viewmodel.UserAccountViewModel
+import com.depi.myapplicatio.util.state.Resource
+import com.depi.myapplicatio.viewmodel.settings.UserAccountViewModel
 
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest

@@ -18,16 +18,16 @@ import com.depi.myapplicatio.R
 import com.depi.myapplicatio.adapters.AddressAdapter
 
 import com.depi.myapplicatio.adapters.BillingProductsAdapter
-import com.depi.myapplicatio.data.Address
-import com.depi.myapplicatio.data.CartProduct
-import com.depi.myapplicatio.data.order.Order
-import com.depi.myapplicatio.data.order.OrderStatus
+import com.depi.myapplicatio.data.models.Address
+import com.depi.myapplicatio.data.models.CartProduct
+import com.depi.myapplicatio.data.models.order.Order
+import com.depi.myapplicatio.data.models.order.OrderStatus
 import com.depi.myapplicatio.databinding.FragmentBillingBinding
-import com.depi.myapplicatio.util.HorizontalDecoration
-import com.depi.myapplicatio.util.Resource
-import com.depi.myapplicatio.util.showDialogue
-import com.depi.myapplicatio.viewmodel.BillingViewModel
-import com.depi.myapplicatio.viewmodel.OrderViewModel
+import com.depi.myapplicatio.util.recyclerdecoration.HorizontalDecoration
+import com.depi.myapplicatio.util.state.Resource
+import com.depi.myapplicatio.util.viewutility.showDialogue
+import com.depi.myapplicatio.viewmodel.billing.BillingViewModel
+import com.depi.myapplicatio.viewmodel.settings.OrderViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -37,7 +37,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class BillingFragment : Fragment() {
     private lateinit var binding: FragmentBillingBinding
-    private val addressAdapter by lazy { AddressAdapter() }
+    private val addressAdapter by lazy { AddressAdapter(requireContext()) }
     private val billingAdapter by lazy { BillingProductsAdapter() }
     private val billingViewModel by viewModels<BillingViewModel>()
     private val args by navArgs<BillingFragmentArgs>()

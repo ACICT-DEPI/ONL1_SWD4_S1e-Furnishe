@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_searchFragment_to_productDetailsFragment"
             app:destination="@id/productDetailsFragment" />
+        <argument
+            android:name="product"
+            app:argType="com.depi.myapplicatio.data.models.Product" />
     </fragment>
     <fragment
         android:id="@+id/cartFragment"
@@ -32,7 +35,6 @@
             android:id="@+id/action_cartFragment_to_productDetailsFragment"
             app:destination="@id/productDetailsFragment" />
 
-        />
         <action
             android:id="@+id/action_cartFragment_to_billingFragment2"
             app:destination="@id/billingFragment" />
@@ -60,7 +62,7 @@
         tools:layout="@layout/fragment_product_details">
         <argument
             android:name="product"
-            app:argType="com.depi.myapplicatio.data.Product" />
+            app:argType="com.depi.myapplicatio.data.models.Product" />
     </fragment>
 
 
@@ -80,7 +82,7 @@
         android:label="OrderDetailFragment">
         <argument
             android:name="order"
-            app:argType="com.depi.myapplicatio.data.order.Order" />
+            app:argType="com.depi.myapplicatio.data.models.order.Order" />
     </fragment>
 
 
@@ -89,11 +91,11 @@
         android:name="com.depi.myappliacatio.fragments.shopping.AddressFragment"
         android:label="AddressFragment"
         tools:layout="@layout/fragment_address">
-        >
+
         <argument
             android:name="address"
             android:defaultValue="@null"
-            app:argType="com.depi.myapplicatio.data.Address"
+            app:argType="com.depi.myapplicatio.data.models.Address"
             app:nullable="true" />
 
     </fragment>
@@ -121,17 +123,14 @@
             app:argType="float" />
         <argument
             android:name="products"
-            app:argType="com.depi.myapplicatio.data.CartProduct[]" />
+            app:argType="com.depi.myapplicatio.data.models.CartProduct[]" />
         <argument
             android:name="payment"
             app:argType="boolean" />
 
 
     </fragment>
-    <fragment
-        android:id="@+id/productDetailsFragments"
-        android:name="com.depi.myapplicatio.adapters.ProductDetailsFragments"
-        android:label="ProductDetailsFragments" />
+
 
 
 </navigation>

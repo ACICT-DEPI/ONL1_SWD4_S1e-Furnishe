@@ -12,12 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.depi.myapplicatio.adapters.BillingProductsAdapter
 
 
-import com.depi.myapplicatio.util.VerticalItemDecoration
-import com.depi.myapplicatio.util.hideBottomNavigationView
-import com.depi.myapplicatio.data.order.OrderStatus
-import com.depi.myapplicatio.data.order.getOrderStatus
+import com.depi.myapplicatio.util.recyclerdecoration.VerticalItemDecoration
+import com.depi.myapplicatio.util.viewutility.hideBottomNavigationView
+import com.depi.myapplicatio.data.models.order.OrderStatus
+import com.depi.myapplicatio.data.models.order.getOrderStatus
 import com.depi.myapplicatio.databinding.FragmentOrderDetailBinding
-import com.shuhart.stepview.StepView
 
 class OrderDetailFragment : Fragment() {
     private lateinit var binding: FragmentOrderDetailBinding
