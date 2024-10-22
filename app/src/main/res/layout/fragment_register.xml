@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layoutDirection="ltr">
+    android:layoutDirection="ltr"
+    android:scrollbars="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -57,7 +58,7 @@
             android:id="@+id/tvSignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="40dp"
             android:text="@string/create_account"
             android:textColor="@color/grayish_brown"
             android:textSize="36sp"
@@ -82,7 +83,7 @@
             android:id="@+id/edFirstNameRegister"
             android:layout_width="0dp"
             android:layout_height="55dp"
-            android:layout_marginTop="68dp"
+            android:layout_marginTop="50dp"
             android:background="@drawable/custom_edittext"
             android:drawableStart="@drawable/baseline_person_24"
             android:drawablePadding="8dp"
@@ -113,6 +114,26 @@
             app:layout_constraintTop_toBottomOf="@id/edFirstNameRegister" />
 
         <EditText
+            android:id="@+id/edPhoneNumber"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_edittext"
+            android:drawableStart="@drawable/baseline_person_24"
+            android:drawablePadding="8dp"
+            android:hint="@string/phone_number"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textColor="@color/medium_gray"
+            android:textColorHint="@color/g_gray500"
+            app:layout_constraintBottom_toTopOf="@id/edEmailRegister"
+            app:layout_constraintEnd_toStartOf="@id/guidelineRegisterRight"
+            app:layout_constraintStart_toEndOf="@id/guidelineRegisterLeft"
+            app:layout_constraintTop_toBottomOf="@id/edLastNameRegister"
+            tools:ignore="TextFields" />
+
+        <EditText
             android:id="@+id/edEmailRegister"
             android:layout_width="0dp"
             android:layout_height="55dp"
@@ -127,7 +148,7 @@
             android:textColorHint="@color/g_gray500"
             app:layout_constraintEnd_toStartOf="@id/guidelineRegisterRight"
             app:layout_constraintStart_toEndOf="@id/guidelineRegisterLeft"
-            app:layout_constraintTop_toBottomOf="@id/edLastNameRegister" />
+            app:layout_constraintTop_toBottomOf="@id/edPhoneNumber" />
 
         <EditText
             android:id="@+id/edPasswordRegister"

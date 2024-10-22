@@ -152,6 +152,8 @@
     <string name="create_account">Create Account</string>
     <string name="description_sign_up">Fill your information below or register \\n \\t\\t\\t\\t\\t with your social account</string>
     <string name="cancel">Cancel</string>
+    <string name="enter_your_email_for_the_verification_process_we_will_send_a_4_digits_code_to_your_email">Enter your email for the verification process. We will send a 4 digits code to your email.</string>
+    <string name="enter_the_4_digit_code_that_you_received_on_your_email">Enter the 4 digit code that you received on your email.</string>
 
 
 </resources>
