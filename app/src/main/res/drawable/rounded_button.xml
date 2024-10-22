@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
+<<<<<<< HEAD
     <solid android:color="@color/grayish_brown" /> <!-- اللون العادي -->
     <corners android:radius="5dp" /> <!-- شكل الحواف -->
+=======
+    <solid android:color="@color/grayish_brown" />
+    <corners android:radius="5dp" />
+>>>>>>> 5360dc4d80e6b5d2bd1132ff4fe6d8d36520168f
 </shape>

@@ -8,40 +8,47 @@
     android:layout_marginBottom="@dimen/_10sdp"
     android:paddingBottom="@dimen/_18sdp"
     app:cardBackgroundColor="@color/white"
+<<<<<<< HEAD
     app:cardCornerRadius="12dp">
+=======
+    app:cardCornerRadius="12dp"
+    app:cardElevation="0dp">
+>>>>>>> 5360dc4d80e6b5d2bd1132ff4fe6d8d36520168f
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="88dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/white"
+<<<<<<< HEAD
         android:padding="@dimen/_6sdp"
         android:paddingBottom="@dimen/_8sdp">
+=======
+        android:padding="10dp">
+>>>>>>> 5360dc4d80e6b5d2bd1132ff4fe6d8d36520168f
 
         <ImageView
             android:id="@+id/img_best_deal"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_launcher_background"
             android:contentDescription="@string/app_name"
-            app:layout_constraintBottom_toBottomOf="@id/tv_new_price"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_deal_product_name" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_deal_product_name"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
             android:fontFamily="@font/poppins_light"
             android:text="@string/scotch_premium"
             android:textColor="@color/black"
-            android:textSize="9sp"
+            android:textSize="11sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/img_best_deal"
-            app:layout_constraintTop_toTopOf="@id/img_best_deal"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="SmallSp" />
 
         <TextView
@@ -51,7 +58,7 @@
             android:layout_marginStart="8dp"
             android:fontFamily="@font/sf_pro_display"
             android:text="@string/_2000"
-            android:textColor="@color/g_gray700"
+            android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/tv_new_price"
             app:layout_constraintTop_toBottomOf="@id/tv_deal_product_name" />
@@ -63,42 +70,9 @@
             android:fontFamily="@font/sf_pro_display"
             android:text="@string/_1600"
             android:textColor="@color/black"
-
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@id/tv_deal_product_name"
             app:layout_constraintTop_toBottomOf="@id/tv_deal_product_name" />
-
-        <com.github.leandroborgesferreira.loadingbutton.customViews.CircularProgressButton
-            android:id="@+id/btn_see_product"
-            android:layout_width="83dp"
-            android:layout_height="28dp"
-            android:layout_marginStart="20dp"
-            android:background="@drawable/blue_background"
-            android:fontFamily="@font/poppins_light"
-            android:text="@string/g_see_product"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_9ssp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tv_deal_product_name"
-            tools:ignore="SmallSp" />
-
-        <LinearLayout
-            android:layout_width="23dp"
-            android:layout_height="23dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_best_deal" />
-        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

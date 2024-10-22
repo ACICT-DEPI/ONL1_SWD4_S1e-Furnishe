@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -80,16 +79,15 @@
             android:layout_height="28dp"
             android:layout_marginTop="50dp"
             android:background="@drawable/settings_items_background"
-            android:backgroundTint="#5E85F9"
+            android:backgroundTint="@color/yellow"
             android:src="@drawable/ic_edit"
             app:layout_constraintBottom_toBottomOf="@id/imageUser"
             app:layout_constraintEnd_toEndOf="@id/imageUser" />
 
-
         <EditText
             android:id="@+id/edFirstName"
             android:layout_width="0dp"
-            android:layout_height="45dp"
+            android:layout_height="48dp"
             android:layout_marginTop="40dp"
             android:background="@drawable/white_background"
             android:fontFamily="@font/poppins_light"
@@ -104,7 +102,7 @@
         <EditText
             android:id="@+id/edLastName"
             android:layout_width="0dp"
-            android:layout_height="45dp"
+            android:layout_height="48dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/white_background"
             android:fontFamily="@font/poppins_light"
@@ -119,13 +117,14 @@
         <EditText
             android:id="@+id/edEmail"
             android:layout_width="0dp"
-            android:layout_height="45dp"
+            android:layout_height="48dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/white_background"
             android:editable="false"
             android:fontFamily="@font/poppins_light"
             android:gravity="center"
             android:hint="Email"
+            android:textStyle="bold"
             android:singleLine="true"
             android:textColor="@color/g_gray700"
             app:layout_constraintEnd_toEndOf="@id/rightGuideline"
@@ -138,19 +137,22 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Forgot/Change password"
+            android:textColor="@color/grayish_brown"
+            android:textSize="15sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/leftGuideline"
             app:layout_constraintTop_toBottomOf="@+id/edEmail" />
 
         <com.github.leandroborgesferreira.loadingbutton.customViews.CircularProgressButton
             android:id="@+id/buttonSave"
             android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:background="@drawable/blue_background"
+            android:layout_height="48dp"
+            style="@style/coloredButtonStyle"
             android:fontFamily="@font/poppins_light"
             android:text="Save"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/rightGuideline"

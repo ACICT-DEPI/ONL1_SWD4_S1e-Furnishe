@@ -7,7 +7,7 @@
     android:padding="8dp"
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="12dp"
-    app:cardElevation="8dp">
+    app:cardElevation="3dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,23 +15,27 @@
 
         <ImageView
             android:id="@+id/imageSpecialRvItem"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_marginStart="16dp"
+<<<<<<< HEAD
             android:layout_marginTop="10dp"
             android:layout_marginBottom="@dimen/_10sdp"
+=======
+            android:layout_marginVertical="10dp"
+>>>>>>> 5360dc4d80e6b5d2bd1132ff4fe6d8d36520168f
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
             android:id="@+id/tvSpecialProductName"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
-            android:layout_marginTop="7dp"
             android:fontFamily="@font/poppins_thin"
             android:maxLines="2"
             android:text="@string/scotch_premium"
@@ -47,29 +51,11 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/sf_pro_display"
             android:text="@string/_1600"
-            android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textColor="@color/grayish_brown"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/tvSpecialProductName"
-            app:layout_constraintTop_toBottomOf="@id/tvSpecialProductName" />
-
-
-        <LinearLayout
-            android:layout_width="23dp"
-            android:layout_height="23dp"
-            android:background="@drawable/icon_background"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="7dp"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_favorite" />
-        </LinearLayout>
-
+            app:layout_constraintBottom_toBottomOf="@id/imageSpecialRvItem" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

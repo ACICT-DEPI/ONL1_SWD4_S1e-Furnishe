@@ -18,8 +18,12 @@
             android:layout_width="10dp"
             android:layout_height="10sp"
             android:layout_gravity="center"
+<<<<<<< HEAD
             android:src="@color/black"
             tools:ignore="SmallSp" />
+=======
+            android:src="@color/grayish_brown" />
+>>>>>>> 5360dc4d80e6b5d2bd1132ff4fe6d8d36520168f
 
         <TextView
             android:id="@+id/tvOrderName"
@@ -28,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_weight="1"
+            android:textColor="@color/grayish_brown"
             tools:text="@tools:sample/lorem" />
 
         <ImageView
@@ -56,6 +61,6 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="15dp"
-        android:background="@color/g_gray700"
-        android:backgroundTint="@color/g_blue_gray200" />
+        android:background="@color/light_grey"
+        android:backgroundTint="@color/light_grey" />
 </LinearLayout>

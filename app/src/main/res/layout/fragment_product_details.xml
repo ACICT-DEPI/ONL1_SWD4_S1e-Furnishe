@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     xmlns:app="http://schemas.android.com/apk/res-auto"
+=======
+    xmlns:tools="http://schemas.android.com/tools"
+>>>>>>> 5360dc4d80e6b5d2bd1132ff4fe6d8d36520168f
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,27 +30,26 @@
                     android:id="@+id/imageClose"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:contentDescription="@string/app_name"
-                    android:padding="5dp"
                     android:src="@drawable/ic_arrow_back"
+                    android:padding="5dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:tint="@color/g_black" />
+                    app:tint="@color/g_black"/>
 
                 <TextView
                     android:id="@+id/tvAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="120dp"
-                    android:gravity="center"
+                    android:text="Details"
                     android:padding="5dp"
-                    android:text="@string/g_details"
                     android:textColor="@color/black"
                     android:textSize="25sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@id/imageClose"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:gravity="center"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.appcompat.widget.Toolbar>
 
@@ -53,118 +57,131 @@
             android:id="@+id/cardProductImages"
             android:layout_width="0dp"
             android:layout_height="350dp"
-            android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
             app:cardCornerRadius="10dp"
-            app:cardElevation="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbarAddresses">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbarAddresses"
+            app:cardElevation="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/viewPagerProductImages"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                />
+
+
+
         </androidx.cardview.widget.CardView>
 
         <LinearLayout
             android:id="@+id/linearTitlePrice"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="35dp"
-            android:layout_marginEnd="10dp"
             android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="35dp"
+            app:layout_constraintTop_toBottomOf="@id/cardProductImages"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardProductImages">
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
 
             <TextView
                 android:id="@+id/tvProductName"
-                style="@style/h3"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/lofcoding"
-                android:textStyle="bold" />
+                style="@style/h3"
+                android:textStyle="bold"
+                android:text="Lofcoding"/>
 
             <TextView
                 android:id="@+id/tvProductPrice"
-                style="@style/h3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/_6000"
-                android:textColor="@color/g_gray700" />
+                style="@style/h3"
+                android:textColor="@color/g_gray700"
+                android:text="$6000"/>
+
         </LinearLayout>
 
         <TextView
             android:id="@+id/tvProductDescription"
-            style="@style/h3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:text="@string/g_reset_password_message"
+=======
+            style="@style/h3"
+>>>>>>> 5360dc4d80e6b5d2bd1132ff4fe6d8d36520168f
             android:textColor="@color/g_gray700"
+            app:layout_constraintTop_toBottomOf="@id/linearTitlePrice"
+            app:layout_constraintStart_toStartOf="@id/linearTitlePrice"
             android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@id/linearTitlePrice"
-            app:layout_constraintTop_toBottomOf="@id/linearTitlePrice" />
+            android:text="$6000"/>
 
         <View
             android:id="@+id/topLine"
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
             android:background="@color/g_line"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvProductDescription" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProductDescription"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"/>
 
         <LinearLayout
             android:id="@+id/linearProductPref"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:baselineAligned="false"
             android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@id/topLine"
             app:layout_constraintStart_toStartOf="@id/topLine"
-            app:layout_constraintTop_toBottomOf="@id/topLine">
+            app:layout_constraintEnd_toEndOf="@id/topLine"
+            app:layout_constraintTop_toBottomOf="@id/topLine"
+            android:layout_marginTop="30dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/tvProductColors"
-                    style="@style/h3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/g_color"
-                    android:textColor="@color/black" />
+                    style="@style/h3"
+                    android:textColor="@color/black"
+                    android:text="Color" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvColors"
                     android:layout_width="wrap_content"
+<<<<<<< HEAD
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"/>
+=======
+                    android:layout_height="wrap_content"/>
+>>>>>>> 5360dc4d80e6b5d2bd1132ff4fe6d8d36520168f
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/tvProductSize"
-                    style="@style/h3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+<<<<<<< HEAD
                     android:text="@string/g_size"
                     android:textColor="@color/black" />
             </LinearLayout>
@@ -173,6 +190,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"/>
+=======
+                    style="@style/h3"
+                    android:textColor="@color/black"
+                    android:text="Size" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_sizes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+>>>>>>> 5360dc4d80e6b5d2bd1132ff4fe6d8d36520168f
         </LinearLayout>
 
 
@@ -193,17 +222,19 @@
 
         <com.github.leandroborgesferreira.loadingbutton.customViews.CircularProgressButton
             android:id="@+id/buttonAddToCart"
-            style="@style/brownButtonStyle"
             android:layout_width="0dp"
             android:layout_height="@dimen/mediumButtonHeight"
+            style="@style/brownButtonStyle"
+            app:layout_constraintTop_toBottomOf="@id/linearProductPref"
+            app:layout_constraintStart_toStartOf="@id/linearProductPref"
+            app:layout_constraintEnd_toEndOf="@id/linearProductPref"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="45dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/button_background"
-            android:text="@string/g_add_to_cart"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/linearProductPref"
-            app:layout_constraintStart_toStartOf="@id/linearProductPref"
-            app:layout_constraintTop_toBottomOf="@id/linearProductPref"
-            app:spinning_bar_color="@color/white" />
+            android:text="Add to cart"
+            app:spinning_bar_color="@color/white"
+            tools:ignore="MissingClass" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.core.widget.NestedScrollView>
