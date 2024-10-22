@@ -3,9 +3,10 @@
 
 
     <solid android:color="@color/white"/>
-    <stroke android:color="@color/g_blue_gray200"
+    <stroke android:color="@color/grayish_brown"
         android:dashGap="0dp"
-        android:width="2dp"/>
+        android:width="1.5dp" />
+    <corners android:radius="5dp"/>
 
 
 </shape>

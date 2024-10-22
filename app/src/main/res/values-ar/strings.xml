@@ -129,8 +129,8 @@
     <string name="lofcoding">Lofcoding</string>
     <string name="_6000">$6000</string>
     <color name="brown">#704F38</color>
-    <color name="Dark_grayish_brown">#3E3B39</color>
-    <color name="dark_grayish_brown">#4E4745</color>
+    <color name="dark_grayish_brown">#3E3B39</color>
+    <color name="grayish_brown">#4E4745</color>
     <string name="_50">50$</string>
     <string name="_1">1</string>
     <string name="l">L</string>

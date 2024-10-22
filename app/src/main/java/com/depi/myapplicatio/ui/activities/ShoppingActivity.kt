@@ -47,11 +47,9 @@ class ShoppingActivity : AppCompatActivity() {
                             bottomNavigation.getOrCreateBadge(R.id.cartFragment).apply {
                                 number = count
                                 backgroundColor =
-                                    ContextCompat.getColor(this@ShoppingActivity, R.color.g_blue)
-
+                                    ContextCompat.getColor(this@ShoppingActivity, R.color.yellow)
                             }
                         }
-
                         else -> Unit
                     }
                 }

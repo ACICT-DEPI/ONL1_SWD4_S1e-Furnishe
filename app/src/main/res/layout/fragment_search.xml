@@ -19,6 +19,7 @@
             android:background="@drawable/search_box_background"
             android:drawableEnd="@drawable/ic_search"
             android:drawablePadding="10dp"
+            android:paddingEnd="15dp"
             android:fontFamily="@font/poppins_thin"
             android:gravity="center_vertical"
             android:hint="@string/g_search_now"
@@ -26,63 +27,16 @@
             android:inputType="text"
             android:paddingStart="@dimen/_12sdp"
             android:singleLine="true"
-            android:textColor="@color/g_icon_tint"
+            android:textColor="@color/medium_gray"
             android:textSize="@dimen/_12ssp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/guideline4"
-            app:layout_constraintEnd_toEndOf="@id/guideline3"
+            app:layout_constraintEnd_toEndOf="@id/guideline2"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/guideline1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"
             tools:ignore="RtlSymmetry" />
-
-        <FrameLayout
-            android:id="@+id/frame_scan"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginStart="@dimen/_5sdp"
-            android:layout_marginEnd="@dimen/_5sdp"
-            android:background="@drawable/favorite_background"
-            android:backgroundTint="@color/g_search_and_icons"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="@id/ed_search"
-            app:layout_constraintEnd_toEndOf="@id/guideline8"
-            app:layout_constraintStart_toEndOf="@id/guideline3"
-            app:layout_constraintTop_toTopOf="@id/ed_search"
-            app:layout_constraintVertical_bias="0.533">
-
-            <ImageView
-                android:id="@+id/img_scan"
-                android:layout_width="@dimen/_15sdp"
-                android:layout_height="@dimen/_15sdp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_scan" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/fragme_microhpone"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginStart="@dimen/_5sdp"
-            android:background="@drawable/favorite_background"
-            android:backgroundTint="@color/g_search_and_icons"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="@id/ed_search"
-            app:layout_constraintEnd_toEndOf="@id/guideline2"
-            app:layout_constraintStart_toEndOf="@id/guideline8"
-            app:layout_constraintTop_toTopOf="@id/ed_search">
-
-            <ImageView
-                android:id="@+id/img_mic"
-                android:layout_width="@dimen/_15sdp"
-                android:layout_height="@dimen/_15sdp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_microphone" />
-
-        </FrameLayout>
 
         <TextView
             android:id="@+id/tv_cancel"

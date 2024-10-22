@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.depi.myapplicatio.R
@@ -16,7 +15,6 @@ import com.depi.myapplicatio.fragments.categories.CupboardFragment
 import com.depi.myapplicatio.fragments.categories.FurnitureFragment
 import com.depi.myapplicatio.fragments.categories.MainCategoryFragment
 import com.depi.myapplicatio.fragments.categories.TableFragment
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 
 class HomeFragment : Fragment() {
@@ -44,25 +42,6 @@ class HomeFragment : Fragment() {
         binding.searchBar.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
-        binding.frameScan.setOnClickListener {
-            val snackBar =
-                requireActivity().findViewById<CoordinatorLayout>(R.id.snackBar_coordinator)
-            Snackbar.make(
-                snackBar,
-                resources.getText(R.string.g_coming_soon),
-                Snackbar.LENGTH_SHORT
-            ).show()
-        }
-        binding.micScan.setOnClickListener {
-            val snackBar =
-                requireActivity().findViewById<CoordinatorLayout>(R.id.snackBar_coordinator)
-            Snackbar.make(
-                snackBar,
-                resources.getText(R.string.g_coming_soon),
-                Snackbar.LENGTH_SHORT
-            ).show()
-        }
-
 
         binding.viewpagerHome.isUserInputEnabled = false
 

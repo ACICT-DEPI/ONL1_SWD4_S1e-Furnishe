@@ -34,10 +34,10 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal"
+                android:padding="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
                 android:id="@+id/tvBestDeals"
@@ -58,7 +58,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:padding="@dimen/_10sdp"
+                android:padding="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/rvSpecialProducts"
                 app:layout_constraintTop_toBottomOf="@id/tvBestDeals"
@@ -85,8 +85,7 @@
                 android:overScrollMode="never"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvBestProducts"
-                tools:listitem="@layout/best_deals_rv_item" />
+                app:layout_constraintTop_toBottomOf="@id/tvBestProducts" />
 
             <ProgressBar
                 android:id="@+id/bestProductsProgressbar"
