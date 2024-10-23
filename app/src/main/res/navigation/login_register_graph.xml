@@ -29,10 +29,6 @@
             app:enterAnim="@anim/from_bottom"
             app:popUpTo="@id/accountOptionsFragment"
             app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_login_to_forgetPasswordFragment"
-            app:destination="@id/forgetPasswordFragment" />
-
     </fragment>
 
     <fragment
@@ -81,48 +77,6 @@
         <action
             android:id="@+id/action_splashScreenFragment_to_introductionFragment"
             app:destination="@id/introductionFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/forgetPasswordFragment"
-        android:name="com.depi.myapplication.ui.fragments.loginRegister.FragmentForgetPassword"
-        android:label="ForgetPasswordFragment"
-        tools:layout="@layout/fragment_forget_password">
-        <action
-            android:id="@+id/action_forgetPasswordFragment_to_login"
-            app:destination="@id/login" />
-        <action
-            android:id="@+id/action_forgetPasswordFragment_to_resetPasswordFragment"
-            app:destination="@id/resetPasswordFragment" />
-        <action
-            android:id="@+id/action_forgetPasswordFragment_to_digitCodeFragment"
-            app:destination="@id/digitCodeFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/resetPasswordFragment"
-        android:name="com.depi.myapplication.ui.fragments.loginRegister.ResetPasswordFragment"
-        android:label="ResetPasswordFragment"
-        tools:layout="@layout/fragment_rest_password_success">
-        <action
-            android:id="@+id/action_resetPasswordFragment_to_login2"
-            app:destination="@id/login" />
-    </fragment>
-    <fragment
-        android:id="@+id/editPasswordFragment"
-        android:name="EditPasswordFragment"
-        android:label="EditPasswordFragment"
-        tools:layout="@layout/fragment_edit_password">
-        <action
-            android:id="@+id/action_editPasswordFragment_to_resetPasswordFragment"
-            app:destination="@id/resetPasswordFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/digitCodeFragment"
-        android:name="com.depi.myapplication.ui.fragments."
-        android:label="DigitCodeFragment"
-        tools:layout="@layout/fragment_digit_code">
-        <action
-            android:id="@+id/action_digitCodeFragment_to_editPasswordFragment"
-            app:destination="@id/editPasswordFragment" />
     </fragment>
 </navigation>
 

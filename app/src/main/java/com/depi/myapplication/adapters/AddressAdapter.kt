@@ -1,6 +1,5 @@
 package com.depi.myapplication.adapters
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
@@ -21,19 +20,20 @@ class AddressAdapter(
 
     inner class AddressViewHolder(val binding: AddressRvItemBinding) :
         ViewHolder(binding.root) {
-        @SuppressLint("ResourceType")
         fun bind(address: Address, isSelected: Boolean) {
             binding.apply {
                 buttonAddress.text = address.addressTitle
                 if (isSelected) {
                     buttonAddress.background =
-                        ColorDrawable(ContextCompat.getColor(context, R.color.grayish_brown))
+                        ColorDrawable(ContextCompat.getColor(context, R.color.g_blue))
                 } else {
                     buttonAddress.background =
-                        ColorDrawable(ContextCompat.getColor(context, R.drawable.unselected_button_background))
+                        ColorDrawable(ContextCompat.getColor(context, R.color.g_white))
                 }
             }
         }
+
+
     }
 
     private val diffUtil = object : DiffUtil.ItemCallback<Address>() {
@@ -69,6 +69,7 @@ class AddressAdapter(
         }
     }
 
+    //
     init {
         differ.addListListener { _, _ ->
             notifyItemChanged(selectedAddress)
@@ -78,6 +79,7 @@ class AddressAdapter(
     override fun getItemCount(): Int {
         return differ.currentList.size
     }
+
 
     var onClick: ((Address) -> Unit)? = null
 }

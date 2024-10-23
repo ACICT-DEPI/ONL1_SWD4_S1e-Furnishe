@@ -4,18 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash_screen_background">
+    android:background="@drawable/splash_screen">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideLineTextStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-<<<<<<< HEAD
         app:layout_constraintGuide_percent="0.54" />
-=======
-        app:layout_constraintGuide_begin="402dp" />
->>>>>>> 5360dc4d80e6b5d2bd1132ff4fe6d8d36520168f
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideLineTextEnd"
@@ -37,11 +33,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guideLineTextStart" />
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/text_splash"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:text="@string/easy_e_commerce_experience"
         android:textAlignment="center"
         android:textColor="@color/g_black"
@@ -51,13 +46,6 @@
         app:layout_constraintTop_toTopOf="@+id/guideLineTextEnd"
         app:layout_constraintVertical_bias="0.19"
         tools:layout_editor_absoluteX="0dp" />
-=======
-        android:src="@drawable/logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/guideLineTextStart"
-        />
->>>>>>> 5360dc4d80e6b5d2bd1132ff4fe6d8d36520168f
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideVersion"

@@ -114,7 +114,7 @@ class UserAccountFragment : Fragment() {
                 val firstName = edFirstName.text.toString().trim()
                 val lastName = edLastName.text.toString().trim()
                 val email = edEmail.text.toString().trim()
-                val user = User(firstName, lastName, "", email)
+                val user = User(firstName, lastName, email)
                 viewModel.updateUser(user, imageUri)
             }
         }

@@ -29,19 +29,19 @@ class AllOrdersAdapter(
 
                 val colorDrawable = when (getOrderStatus(order.orderStatus)) {
                     is OrderStatus.Ordered -> {
-                        ColorDrawable(ContextCompat.getColor(context, R.color.yellow))
+                        ColorDrawable(ContextCompat.getColor(context, R.color.g_orange_yellow))
                     }
 
                     is OrderStatus.Confirmed -> {
-                        ColorDrawable(ContextCompat.getColor(context, R.color.grayish_brown))
+                        ColorDrawable(ContextCompat.getColor(context, R.color.g_blue))
                     }
 
                     is OrderStatus.Delivered -> {
-                        ColorDrawable(ContextCompat.getColor(context, R.color.grayish_brown))
+                        ColorDrawable(ContextCompat.getColor(context, R.color.g_blue))
                     }
 
                     is OrderStatus.Shipped -> {
-                        ColorDrawable(ContextCompat.getColor(context, R.color.grayish_brown))
+                        ColorDrawable(ContextCompat.getColor(context, R.color.g_blue))
                     }
 
                     is OrderStatus.Canceled -> {

@@ -51,7 +51,6 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                 val user = User(
                     edFirstNameRegister.text.toString().trim(),
                     edLastNameRegister.text.toString().trim(),
-                    "",
                     edEmailRegister.text.toString().trim()
                 )
                 val password = edPasswordRegister.text.toString()

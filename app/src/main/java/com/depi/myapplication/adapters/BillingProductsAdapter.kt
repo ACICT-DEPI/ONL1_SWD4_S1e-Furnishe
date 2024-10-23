@@ -59,10 +59,7 @@ class BillingProductsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVi
 
             tvProductCartName.text = cartProduct.product.name
 
-            tvBillingProductQuantity.text =  buildString {
-                append("Amount: ")
-                append(cartProduct.quantity.toString())
-            }
+            tvBillingProductQuantity.text = cartProduct.quantity.toString()
 
             tvCartProductSize.text = cartProduct.selectedSize ?: "".also {
                 imageCartProductSize.setImageDrawable(ColorDrawable(Color.TRANSPARENT))

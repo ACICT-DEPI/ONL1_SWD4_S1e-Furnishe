@@ -29,10 +29,8 @@
     <color name="g_text_hint">#969899</color>
     <color name="g_orange">#F8BA00</color>
     <color name="brown">#704F38</color>
-<<<<<<< HEAD
     <color name="Dark_grayish_brown">#3E3B39</color>
     <color name="_brown">#7C5D47</color>
-
     <color name="brown_hover">#8B6B52</color>
     <color name="dark_charcoal_gray">#1F2029</color>
     <color name="light_gray">#C5C5C5</color>
@@ -41,14 +39,5 @@
     <color name="grayish_brown">#4E4745</color>
     <color name="dark_grayish_brown">#3E3B39</color>
 
-=======
-    <color name="dark_grayish_brown">#3E3B39</color>
-    <color name="grayish_brown">#4E4745</color>
-    <color name="light_grayish_brown">#A6A0A2</color>
-    <color name="light_grey">#9E9E9E</color>
-    <color name="medium_gray" >#797979</color>
-    <color name="whitish_gray">#E6E6E6</color>
-    <color name="yellow">#F2B65F</color>
->>>>>>> 5360dc4d80e6b5d2bd1132ff4fe6d8d36520168f
 
 </resources>

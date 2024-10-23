@@ -160,20 +160,6 @@
     <string name="cancel">Cancel</string>
     <string name="reset_password" translatable="false">Forgot Password</string>
     <string name="already_have_an_account" translatable="false">Already have an account ?</string>
-    <string name="password_changed_successfully">Password changed successfully</string>
-    <string name="password_changed">Password Changed</string>
-    <string name="you_can_now_use_your_new_password_to_login_to_your_account">You can now use your new password to login to your account.</string>
-    <string name="enter_your_email_for_the_verification_process_we_will_send_a_4_digits_code_to_your_email">Enter your email for the verification process. We will send a 4 digits code to your email.</string>
-    <string name="send_code">Send Code</string>
-    <string name="set_the_new_password_for_your_account">Set the new password for your account.</string>
-    <string name="new_password">New Password</string>
-    <string name="re_enter_new_password">Re-enter new password</string>
-    <string name="g_continue">Continue</string>
-    <string name="enter_otp_code">Enter OTP Code</string>
-    <string name="enter_the_4_digit_code_that_you_received_on_your_email">Enter the 4 digit code that you received on your email.</string>
-    <string name="didn_t_recieve_the_otp">Didn\'t recieve the Otp?</string>
-    <string name="resend_otp">Resend OTP</string>
-    <string name="phone_number">Phone Number</string>
 
     <!--    <string name="open_menu">Open Menu</string>-->
 <!--    <string name="close_menu">Close Menu</string>-->

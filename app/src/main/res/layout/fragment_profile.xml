@@ -70,10 +70,7 @@
                     app:layout_constraintStart_toEndOf="@id/imageUser"
                     app:layout_constraintTop_toTopOf="@+id/imageUser" />
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 5360dc4d80e6b5d2bd1132ff4fe6d8d36520168f
                 <TextView
                     android:id="@+id/tv_edit_personal_details"
                     style="@style/SmallTextViewThin"
@@ -114,20 +111,12 @@
                 android:id="@+id/linearOrders"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-<<<<<<< HEAD
                 android:layout_marginTop="10dp"
                 android:background="@drawable/search_box_background"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="@id/guideline2"
                 app:layout_constraintStart_toStartOf="@id/guideline1"
                 app:layout_constraintTop_toBottomOf="@id/tvOrders">
-=======
-                app:layout_constraintStart_toStartOf="@id/guideline1"
-                app:layout_constraintEnd_toEndOf="@id/guideline2"
-                app:layout_constraintTop_toBottomOf="@id/tvOrders"
-                android:orientation="vertical"
-                android:layout_marginTop="10dp">
->>>>>>> 5360dc4d80e6b5d2bd1132ff4fe6d8d36520168f
 
                 <LinearLayout
                     android:id="@+id/linearAllOrders"
@@ -260,20 +249,12 @@
                 android:id="@+id/linearNotifications"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-<<<<<<< HEAD
                 android:layout_marginTop="10dp"
                 android:background="@drawable/search_box_background"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="@id/guideline2"
                 app:layout_constraintStart_toStartOf="@id/guideline1"
                 app:layout_constraintTop_toBottomOf="@id/tvNotifications">
-=======
-                app:layout_constraintStart_toStartOf="@id/guideline1"
-                app:layout_constraintEnd_toEndOf="@id/guideline2"
-                app:layout_constraintTop_toBottomOf="@id/tvNotifications"
-                android:orientation="vertical"
-                android:layout_marginTop="10dp">
->>>>>>> 5360dc4d80e6b5d2bd1132ff4fe6d8d36520168f
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -307,14 +288,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-<<<<<<< HEAD
                         android:buttonTint="#4cd964"
                         android:checked="true" />
-=======
-                        android:buttonTint="@color/yellow"
-                        android:checked="true"
-                        />
->>>>>>> 5360dc4d80e6b5d2bd1132ff4fe6d8d36520168f
 
                 </LinearLayout>
             </LinearLayout>

@@ -189,6 +189,7 @@ class CartFragment : Fragment() {
         binding.apply {
             layoutCartEmpty.visibility = View.GONE
         }
+
     }
 
     private fun showEmptyCart() {
