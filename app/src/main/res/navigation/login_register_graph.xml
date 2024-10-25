@@ -10,7 +10,7 @@
 
         android:name="com.depi.myapplication.ui.fragments.loginRegister.IntroductionFragment"
         android:label="IntroductionFragment"
-        tools:layout="@layout/fragment_introdcution">
+        tools:layout="@layout/fragment_introduction">
         <action
             android:id="@+id/action_introductionFragment_to_accountOptionsFragment"
             app:destination="@id/accountOptionsFragment"

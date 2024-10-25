@@ -14,6 +14,7 @@ object Constants {
     object SharedPreferencesConstants{
         const val INTRODUCTION_SP = "IntroductionSP"
         const val INTRODUCTION_KEY = "IntroductionKey"
+        const val IS_USER_LOGGED_IN = "IsUserLoggedIn"
     }
 
     object BundleConstants{

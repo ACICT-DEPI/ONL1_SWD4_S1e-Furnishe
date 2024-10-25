@@ -152,6 +152,7 @@
     <string name="create_account">Create Account</string>
     <string name="description_sign_up">Fill your information below or register \\n \\t\\t\\t\\t\\t with your social account</string>
     <string name="cancel">Cancel</string>
+    <string name="sorry_no_items_found">Sorry, No Items Found</string>
 
 
 </resources>

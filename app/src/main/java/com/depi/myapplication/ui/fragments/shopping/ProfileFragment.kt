@@ -72,7 +72,7 @@ class ProfileFragment : Fragment() {
                                 ColorDrawable(
                                     Color.BLACK
                                 )
-                            ).into(binding.imageUser)
+                            ).into(binding.imgUser)
                             binding.tvUserName.text = "${it.data.firstName} ${it.data.lastName}"
                             user = it.data
 
@@ -99,7 +99,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun logout() {
-        binding.linearLogOut.setOnClickListener {
+        binding.linearOut.setOnClickListener {
             viewModel.logout()
             val intent = Intent(requireActivity(), MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or  Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -134,7 +134,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun goToOrdersFragment() {
-        binding.linearAllOrders.setOnClickListener {
+        binding.linearOrders.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_ordersFragment)
         }
     }

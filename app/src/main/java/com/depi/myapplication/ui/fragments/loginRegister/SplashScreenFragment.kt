@@ -28,16 +28,24 @@ class SplashScreenFragment : Fragment() {
     private lateinit var binding: FragmentSplashScreenBinding
     private val viewModel by viewModels<IntroductionViewModel>()
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSplashScreenBinding.inflate(inflater)
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.navigate.collect {
-                    delay(800)
+                    delay(900)
+//                    checkUserStatus()
                     when (it) {
                         IntroductionViewModel.SHOPPING_ACTIVITY -> {
                             Intent(requireActivity(), ShoppingActivity::class.java).also { intent ->
@@ -49,22 +57,29 @@ class SplashScreenFragment : Fragment() {
 
                         IntroductionViewModel.ACCOUNT_OPTIONS_FRAGMENT -> {
                             viewModel.startButtonClick()
-                           findNavController().navigate(R.id.action_splashScreenFragment_to_introductionFragment)
+                            findNavController().navigate(R.id.action_splashScreenFragment_to_introductionFragment)
                         }
 
                         else -> Unit
                     }
                 }
+
+
             }
         }
-        return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-
-
+    private fun checkUserStatus() {
+        val isUserLoggedIn = viewModel.getUserStatus()
+        if (isUserLoggedIn) {
+            Intent(requireActivity(), ShoppingActivity::class.java).also { intent ->
+                intent.flags =
+                    Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+            }
+        } else {
+            findNavController().navigate(R.id.action_splashScreenFragment_to_introductionFragment)
+        }
     }
 
 

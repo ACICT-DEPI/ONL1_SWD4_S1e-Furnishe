@@ -38,6 +38,8 @@
     <color name="whitish_gray">#EDEDED</color>
     <color name="grayish_brown">#4E4745</color>
     <color name="dark_grayish_brown">#3E3B39</color>
-
+    <color name="light_grayish_brown">#A6A0A2</color>
+    <color name="light_grey">#9E9E9E</color>
+    <color name="yellow">#F2B65F</color>
 
 </resources>

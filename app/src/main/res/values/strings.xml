@@ -160,6 +160,7 @@
     <string name="cancel">Cancel</string>
     <string name="reset_password" translatable="false">Forgot Password</string>
     <string name="already_have_an_account" translatable="false">Already have an account ?</string>
+    <string name="sorry_no_items_found">Sorry, No Items Found</string>
 
     <!--    <string name="open_menu">Open Menu</string>-->
 <!--    <string name="close_menu">Close Menu</string>-->
@@ -169,6 +170,7 @@
 <!--    <string name="pending_orders">Pending Orders</string>-->
 <!--    <string name="help">Help</string>-->
 <!--    <string name="help_text">Got a question? We\'re here to answer!</string>-->
+
 
 </resources>
 

@@ -45,24 +45,7 @@ class HomeFragment : Fragment() {
         binding.searchBar.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
-        binding.frameScan.setOnClickListener {
-            val snackBar =
-                requireActivity().findViewById<CoordinatorLayout>(R.id.snackBar_coordinator)
-            Snackbar.make(
-                snackBar,
-                resources.getText(R.string.g_coming_soon),
-                Snackbar.LENGTH_SHORT
-            ).show()
-        }
-        binding.micScan.setOnClickListener {
-            val snackBar =
-                requireActivity().findViewById<CoordinatorLayout>(R.id.snackBar_coordinator)
-            Snackbar.make(
-                snackBar,
-                resources.getText(R.string.g_coming_soon),
-                Snackbar.LENGTH_SHORT
-            ).show()
-        }
+
 
 
         binding.viewpagerHome.isUserInputEnabled = false

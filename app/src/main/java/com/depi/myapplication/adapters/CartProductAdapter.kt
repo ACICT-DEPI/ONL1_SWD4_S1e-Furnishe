@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.depi.myapplication.data.models.CartProduct
 import com.depi.myapplication.databinding.CartProductItemBinding
+
 import com.depi.myapplication.util.helper.getProductPrice
 
 class CartProductAdapter : RecyclerView.Adapter<CartProductAdapter.CartProductsViewHolder>() {
@@ -69,11 +70,11 @@ class CartProductAdapter : RecyclerView.Adapter<CartProductAdapter.CartProductsV
             onProductClick?.invoke(cartProduct)
         }
 
-        holder.binding.imagePlus.setOnClickListener {
+        holder.binding.imagePlusBackground.setOnClickListener {
             onPlusClick?.invoke(cartProduct)
         }
 
-        holder.binding.imageMinus.setOnClickListener {
+        holder.binding.imageMinusBackground.setOnClickListener {
             onMinusClick?.invoke(cartProduct)
         }
     }

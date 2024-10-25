@@ -86,9 +86,7 @@ class Login : Fragment(R.layout.fragment_login) {
                                 // Handle the unspecified case if needed
                             }
 
-                            else -> {
-                                Unit
-                            }
+
                         }
                     }
                 }
@@ -118,7 +116,7 @@ class Login : Fragment(R.layout.fragment_login) {
                                 // Handle the unspecified case if needed
                             }
 
-                            else -> Unit
+
                         }
                     }
                 }

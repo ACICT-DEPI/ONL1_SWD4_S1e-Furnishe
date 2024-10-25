@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.depi.myapplication.R
+import com.depi.myapplication.databinding.OrderItemBinding
 import com.depi.myapplication.data.models.order.Order
 import com.depi.myapplication.data.models.order.OrderStatus
 import com.depi.myapplication.data.models.order.getOrderStatus
-import com.depi.myapplication.databinding.OrderItemBinding
 
 class AllOrdersAdapter(
     val context: Context
@@ -23,31 +23,25 @@ class AllOrdersAdapter(
         fun bind(order: Order) {
             binding.apply {
                 tvOrderId.text = order.orderId.toString()
-                tvOrderName.text = order.products[0].product.name
                 tvOrderDate.text = order.date
                 val resources = itemView.resources
 
                 val colorDrawable = when (getOrderStatus(order.orderStatus)) {
                     is OrderStatus.Ordered -> {
-                        ColorDrawable(ContextCompat.getColor(context, R.color.g_orange_yellow))
+                        ColorDrawable(ContextCompat.getColor(context, R.color.yellow))
                     }
-
                     is OrderStatus.Confirmed -> {
-                        ColorDrawable(ContextCompat.getColor(context, R.color.g_blue))
+                        ColorDrawable(ContextCompat.getColor(context, R.color.grayish_brown))
                     }
-
                     is OrderStatus.Delivered -> {
-                        ColorDrawable(ContextCompat.getColor(context, R.color.g_blue))
+                        ColorDrawable(ContextCompat.getColor(context, R.color.grayish_brown))
                     }
-
                     is OrderStatus.Shipped -> {
-                        ColorDrawable(ContextCompat.getColor(context, R.color.g_blue))
+                        ColorDrawable(ContextCompat.getColor(context, R.color.grayish_brown))
                     }
-
                     is OrderStatus.Canceled -> {
                         ColorDrawable(ContextCompat.getColor(context, R.color.g_red))
                     }
-
                     is OrderStatus.Returned -> {
                         ColorDrawable(ContextCompat.getColor(context, R.color.g_red))
                     }

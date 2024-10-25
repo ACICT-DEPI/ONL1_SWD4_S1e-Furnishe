@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.depi.myapplication.data.remote.FirebaseUtility
 import com.depi.myapplication.ui.state.Resource
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,6 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val firebaseUtility: FirebaseUtility,
+    private val firebaseAuth: FirebaseAuth
 ) : ViewModel() {
     private val _login = MutableStateFlow<Resource<FirebaseUser>>(Resource.Unspecified())
     val login = _login.asSharedFlow()
@@ -41,18 +43,18 @@ class LoginViewModel @Inject constructor(
                 }
 
         }
-//        firebaseAuth
-//            .sendPasswordResetEmail(email)
-//            .addOnSuccessListener {
-//                viewModelScope.launch {
-//                    _resetPassword.emit(Resource.Success(email))
-//                }
-//            }
-//            .addOnFailureListener {
-//                viewModelScope.launch {
-//                    _resetPassword.emit(Resource.Error(it.message.toString()))
-//                }
-//            }
+        firebaseAuth
+            .sendPasswordResetEmail(email)
+            .addOnSuccessListener {
+                viewModelScope.launch {
+                    _resetPassword.emit(Resource.Success(email))
+                }
+            }
+            .addOnFailureListener {
+                viewModelScope.launch {
+                    _resetPassword.emit(Resource.Error(it.message.toString()))
+                }
+            }
     }
 
     fun resetPassword(email: String) {

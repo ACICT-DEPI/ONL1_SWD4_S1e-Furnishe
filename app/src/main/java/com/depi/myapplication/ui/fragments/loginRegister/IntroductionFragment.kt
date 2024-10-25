@@ -12,7 +12,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.depi.myapplication.R
-import com.depi.myapplication.databinding.FragmentIntrodcutionBinding
+
+import com.depi.myapplication.databinding.FragmentIntroductionBinding
 import com.depi.myapplication.ui.activities.ShoppingActivity
 import com.depi.myapplication.ui.viewmodel.loginregister.IntroductionViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,8 +21,8 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class IntroductionFragment : Fragment(R.layout.fragment_introdcution) {
-    private var _binding: FragmentIntrodcutionBinding? = null
+class IntroductionFragment : Fragment(R.layout.fragment_introduction) {
+    private var _binding: FragmentIntroductionBinding? = null
     private val binding get() = _binding!!
     private val viewModel by viewModels<IntroductionViewModel>()
 
@@ -30,38 +31,16 @@ class IntroductionFragment : Fragment(R.layout.fragment_introdcution) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentIntrodcutionBinding.inflate(inflater, container, false)
+        _binding = FragmentIntroductionBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.firstClicker.setOnClickListener {
+        binding.FirstClicker.setOnClickListener {
             findNavController().navigate(R.id.action_introductionFragment_to_accountOptionsFragment)
         }
-        lifecycleScope.launch {
-            viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                viewModel.navigate.collect {
-                    delay(800)
-                    when (it) {
-                        IntroductionViewModel.SHOPPING_ACTIVITY -> {
-                            Intent(requireActivity(), ShoppingActivity::class.java).also { intent ->
-                                intent.flags =
-                                    Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                                startActivity(intent)
-                            }
-                        }
 
-                        IntroductionViewModel.ACCOUNT_OPTIONS_FRAGMENT -> {
-                            viewModel.startButtonClick()
-                            findNavController().navigate(R.id.action_splashScreenFragment_to_introductionFragment)
-                        }
-
-                        else -> Unit
-                    }
-                }
-            }
-        }
 
     }
 
